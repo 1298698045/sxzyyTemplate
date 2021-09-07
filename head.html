@@ -1,0 +1,129 @@
+<div class="headerWrap" favicon="{ms:global.host/}/{ms:global.style/}/images/favicon.png">
+    <div class="flex_head_container">
+        <div class="back_top">
+        </div>
+        <div class="header_box">
+            <div class="header spacing">
+                <div class="header_child">
+                    <div class="lLogo" @click="gotoHref('{ms:global.url/}/home.html')">
+                        <img src="{ms:global.host/}/{ms:global.style/}/images/newLogo.png" alt="">
+                    </div>
+                    <div class="rBox">
+                        <div class="back_icon"  id="edition">
+                            <p class="back_url active h" @click="goto('{ms:global.url/}/home.html')">大众版</p>
+                            <p class="back_url" @click="goto('{ms:global.url/}/employee.html')">员工版</p>
+                        </div>
+                        <div class="search_row">
+                            <form id="searchDataForm" action="{ms:global.host/}/mcms/search.do" method="post" class="search_wrap"> 
+                                <div class="searchs">
+                                    <input type="text" class="inp" name="content_title" placeholder="请输入你要查询的内容">
+                                    <i class="serach_icon"></i>
+                                </div>
+                                <div class="btn_text" onclick="document.getElementById('searchDataForm').submit();">
+                                    搜索
+                                </div>
+                            </form>
+                            <div class="hospitalTab">
+                                {ms:channel type='self' typeid='1403323700237922306'}
+                                <div class="topTab maxTab" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">治未病健康体检中心</div>
+                                {/ms:channel}
+                                {ms:channel type='self' typeid='1403324570597945346'}
+                                <div class="topTab minTab" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">名医门诊</div>
+                                {/ms:channel}
+                                <div class="topTab minTab" @click="goto('http://39.100.209.170:9008')">招聘系统</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <div class="nav_box spacing">
+                <ul class="spacing">
+                    <li>
+                        <span :class="{active: activeMenu=='0'}" @click="gotoHref('{ms:global.url/}/home.html')" @mouseover="onMenuMouseOver('0')" @mouseleave="onMenuMouseLeave">
+                            首页
+                        </span>
+                    </li>
+                    {ms:channel type='top' flag='nav' orderby='sort'}
+                    <#assign parentlink=field.typelink>
+                    <#assign parentchannel=field>
+                    <li>
+                        <span :class="{active: activeMenu.includes('${field.typeid}')}"
+                            @click="gotoHref('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')"
+                            @mouseover="onMenuMouseOver('${field.typeid}')"
+                            @mouseleave="onMenuMouseLeave">
+                            ${field.typetitle}
+                        </span>
+                        <#if (field.childsize>0)>
+                        <div class="content" style="display: none;">
+                            <div class="content_child spacing">
+                                <div class="row">
+                                    <div class="itemBox">
+                                        <div class="subject">
+                                            <h3>${field.typetitle}</h3>
+                                        </div>
+                                        <div class="column columnBox hover alignment">
+                                            {ms:channel type='son' orderby='sort'}
+                                            <#if field.typetitle='预约挂号'>
+                                            <p class="lis_p">
+                                                <a href="#">${field.typetitle}</a>
+                                            </p>
+                                            <#else>
+                                            <p class="lis_p">
+                                                <a href="<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>">${field.typetitle}</a>
+                                            </p>
+                                            </#if>
+                                            {/ms:channel}
+                                        </div>
+                                    </div>
+                                    {ms:channel type='son' limit=2 flag='nav2' orderby='sort'}
+                                    <div class="itemBox">
+                                        <div class="column columnBox column_flex"> 
+                                            <h5>${field.typetitle}</h5>
+                                            <#if field.flag?contains('cover')>
+                                                {ms:arclist flag='c' size=1}
+                                                <div class="paragraph">
+                                                    ${field.descrip}
+                                                </div>
+                                                <#if field.descrip?has_content>
+                                                <div class="detail_btn" @click="goto('{ms:global.url/}${field.link}')">查看详细</div>
+                                                </#if>
+                                                {/ms:arclist}
+                                            <#elseif parentchannel.flag?contains('singlepage')>
+                                            {ms:arclist size=4 orderby='date' order='desc'}
+                                            <#if field.flag?contains('tv')>
+                                            <div class="newLi" flag="${field.flag}">
+                                                <div class="hiddenHref" style="display:none;visibility: hidden;">${field.content}</div>
+                                                <a href="#">· ${field.title}</a>
+                                            </div>
+                                            <#else>
+                                            <p class="newLi" flag="${field.flag}"><a href="{ms:global.url/}${field.link}">· ${field.title}</a></p>
+                                            </#if>
+                                            {/ms:arclist}
+                                            <#else>
+                                            {ms:arclist size=4 orderby='date' order='desc'}
+                                            <#if field.flag?contains('tv')>
+                                            <div class="newLi" flag="${field.flag}">
+                                                <div class="hiddenHref" style="display:none;visibility: hidden;">${field.content}</div>
+                                                <a href="#">· ${field.title}</a>
+                                            </div>
+                                            <#else>
+                                            <p class="newLi" flag="${field.flag}"><a href="{ms:global.url/}<#if field.type==3>${parentlink}<#else>${field.typepath}/index.html</#if>?articleid=${field.id}/#${field.typepath}">· ${field.title}</a></p> 
+                                            </#if>
+                                            {/ms:arclist}
+                                            </#if>
+                                        </div>
+                                    </div>
+                                    {/ms:channel}
+                                </div>
+                            </div>
+                        </div>
+                        </#if>
+                    </li>
+                    {/ms:channel}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

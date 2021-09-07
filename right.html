@@ -1,0 +1,80 @@
+<div class="rightNav">
+    <div class="box">
+      <div class="icon_img">
+        <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon7.jpg" />
+      </div>
+      <div class="w_text">
+        <p>预约</p>
+        <p>挂号</p>
+      </div>
+    </div>
+    {ms:channel type='self'  typeid='1403306687218151426'}
+    <div class="box" @click="goto('{ms:global.url/}${field.typeurl}')">
+      <div class="icon_img">
+        <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon6.jpg" />
+      </div>
+      <div class="w_text">
+        <p>出诊</p>
+        <p>信息</p>
+      </div>
+    </div>
+    {/ms:channel}
+    {ms:channel type='self'  typeid='1400724656644583425'}
+    <div class="box" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+      <div class="icon_img">
+        <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon5.jpg" />
+      </div>
+      <div class="w_text">
+        <p>科室</p>
+        <p>导航</p>
+      </div>
+    </div>
+    {/ms:channel}
+    <!-- {ms:channel type='self' typeid='1410072603218001921'}
+    <div class="box" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+      <div class="icon_img">
+        <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon8.jpg" />
+      </div>
+      <div class="w_text">
+        <p>远程</p>
+        <p>医疗</p>
+      </div>
+    </div>
+    {/ms:channel} -->
+    {ms:channel type='self' typeid='1403220112515674114'}
+    <div class="box" @click="goto('{ms:global.url/}${field.typeurl}')">
+      <div class="icon_img">
+        <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon9.jpg" />
+      </div>
+      <div class="w_text">
+        <p>报告</p>
+        <p>检查</p>
+      </div>
+    </div>
+    {/ms:channel}
+    <div class="box">
+      <div class="icon_img">
+        <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon2.jpg" />
+      </div>
+      <div class="w_text">
+        <p>微信</p>
+      </div>
+      <div class="qrCode maxCode">
+        <i></i>
+        <img class="imgs" src="{ms:global.host/}/{ms:global.style/}/images/qrcode.jpg" alt="">
+      </div>
+    </div>
+    <div class="box">
+      <div class="icon_img" style="padding-top:4px;">
+        <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon10.png" />
+      </div>
+      <div class="w_text">
+        <p>头条</p>
+      </div>
+      <div class="qrCode">
+        <i></i>
+        <img class="imgs" src="{ms:global.host/}/{ms:global.style/}/images/qrcode_m.toutiao.cn.jpg" alt="">
+      </div>
+    </div>
+  </div>
+  

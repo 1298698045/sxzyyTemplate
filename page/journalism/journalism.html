@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1300px">
+    <title>{ms:global.name/}</title>
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/head.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/footer.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/journalism.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/pagination.css">
+    <link rel="stylesheet" href="{ms:global.host/}/static/plugins/element-ui/2.15.1/theme-chalk/index.min.css">
+    <style>
+        .el-pagination .el-pager .number{
+            width: 57px!important;
+            height: 58px!important;
+            line-height: 58px;
+            background: url('{ms:global.host/}/{ms:global.style/}/images/page_icon.png') no-repeat!important;
+            list-style: none!important;
+            vertical-align: top!important;
+            color: #333!important;
+        }
+        .el-pagination .el-pager .number.active{
+            color: #ffffff!important;
+            background: url('{ms:global.host/}/{ms:global.style/}/images/page_icon_active.png') no-repeat !important;
+        }
+        .el-pagination .btn-next, .el-pagination .btn-prev{
+            width: 15px!important;
+            height: 34px!important;
+            margin-top: 16px!important;
+        }
+        .el-pagination .btn-prev{
+            background: url('{ms:global.host/}/{ms:global.style/}/images/page_left.png') no-repeat!important;
+        }
+        .el-pagination .btn-next{
+            background: url('{ms:global.host/}/{ms:global.style/}/images/page_right.png') no-repeat!important;
+            margin-left: 18px!important;
+        }
+        .el-pagination .btn-next .el-icon, .el-pagination .btn-prev .el-icon{
+            display: none!important;
+        }
+        .el-pagination .more{
+            width: 57px!important;
+            height: 58px!important;
+            line-height: 58px;
+            background: url('http://t-think.com/hospital/template/1/new_hospital/images/page_icon.png') no-repeat!important;
+            list-style: none!important;
+            vertical-align: top!important;
+            color: #333!important;
+        }
+        .el-pager .more::before{
+            line-height: 58px!important;
+        }
+        .el-pagination__jump{
+            width: 156px!important;
+            height: 42px!important;
+            background: url('{ms:global.host/}/{ms:global.style/}/images/jump.png') no-repeat!important;
+            background-size: 100% 100%!important;
+            display: inline-block!important;
+            color: #606266!important;
+            margin-left: 10px!important;
+            padding: 10px 10px 10px 20px!important;
+            margin-top: 5px!important;
+        }
+        .el-input__inner{
+            background: none!important;
+            border: none!important;
+        }
+        .el-pagination{
+            display: flex;
+            justify-content: center;
+        }
+        .newPage .el-pagination{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="wrap" v-cloak>
+        <#include "head.html" />
+        <#include "right.html" />
+        <div class="center">
+            <#include "location.html" />
+            <div class="container">
+                <div class="row_title" id="anchor1">
+                    <div class="imgs">
+                        <img src="{ms:global.host/}/{ms:global.style/}/images/01.png" alt="">
+                    </div>
+                    <p class="name">${field.typetitle}</p>
+                    <div class="imgs">
+                        <img src="{ms:global.host/}/{ms:global.style/}/images/02.png" alt="">
+                    </div>
+                </div>
+                <div class="tabs">
+                    {ms:channel type='son'}
+                    <div class="tab">
+                        <p @click="push('${field.typepath}')" :class="{text: true, active : $route.path == '${field.typepath}'}" title="${field.typetitle}">
+                            ${field.typetitle}
+                        </p>
+                    </div>
+                    {/ms:channel}
+                </div>
+                <router-view></router-view>
+                
+            </div>
+        </div>
+        <#include "foot.html" />
+    </div>
+</body>
+<script src="{ms:global.host/}/{ms:global.style/}/js/jquery.js"></script>
+<script src="{ms:global.host/}/{ms:global.style/}/js/swiper-3.4.2.min.js"></script>
+
+<script src="${base}/static/plugins/axios/0.18.0/axios.min.js"></script>
+<script src="${base}/static/plugins/qs/6.6.0/qs.min.js"></script>
+<script type="text/javascript" src="${base}/static/plugins/moment/2.29.1/moment.js"></script>
+<script type="text/javascript" src="${base}/static/plugins/ms/1.0.0/ms.http.js"></script>
+<script type="text/javascript" src="${base}/static/plugins/vue/2.6.9/vue.js"></script>
+<script type="text/javascript" src="${base}/static/plugins/vue-router/3.5.1/vue-router.js"></script>
+<script src="{ms:global.host/}/static/plugins/element-ui/2.15.1/index.min.js"></script>
+<script src="{ms:global.host/}/{ms:global.style/}/js/app.js"></script>
+<script>
+    var router = new VueRouter({ routes: [
+        {ms:channel type='son'}
+        {
+            path: '${field.typepath}', 
+            name: '${field.typetitle}',
+            component: {
+                template:
+                <#if field.typeid='1401197142670778369'>
+                `<div class="content_wrap">
+                    <div class="content">
+                        <div class="lCont" id="news">
+                            <div v-for="(line,index) in lines" class="box" :class="{active:num==index}"
+                            @click="handleJournlism(line)"
+                            @mouseover="num=index" @mouseleave="num=-1">
+                                <p class="leftIcon"></p>
+                                <div class="desc_wrap">
+                                    <p class="title">
+                                        {{line.contentTitle}}
+                                    </p>
+                                    <p class="desc">
+                                        {{line.contentDescription}}
+                                    </p>
+                                    <p class="time">
+                                        发布时间：{{dateFormat(line.contentDatetime)}}
+                                    </p>
+                                </div>
+                                <p class="rightIcon"></p>
+                            </div>
+                        </div>
+                        <div class="rCont">
+                            <div class="backImg">
+                                热门新闻
+                            </div>
+                            {ms:arclist size=10 flag='hot' orderby='sort'}
+                                <#if field.flag?contains('tv')>
+                                <div class="middle" flag="${field.flag}">
+                                    <div class="hidden" style="display:none;visibility: hidden;">${field.content}</div>
+                                    <a href="#" class="link" target="_blank">${field.title}</a>
+                                </div>
+                                <#else>
+                                <div class="middle" flag="${field.flag}">
+                                    <a href="#" @click="goto('{ms:global.url/}${field.link}')" target="_blank">${field.title}</a>
+                                </div>
+                                </#if>
+                            {/ms:arclist}
+                        </div>
+                    </div>
+                    <div class="newPage">
+                        <el-pagination
+                            background
+                            @current-change="list"
+                            :page-size="page.pageSize"
+                            :current-page.sync="page.pageNo"
+                            layout="prev, pager, next, jumper"
+                            :total="page.contentCount">
+                        </el-pagination>
+                    </div>
+                </div>`,
+                <#else>
+                    `<div class="content_wrap">
+                        <div class="content">
+                            <div class="memorabilia marginAuto">
+                                <div class="dynamic">
+                                    <div v-for="line in lines" @click="handleVideo(line)" class="box">
+                                        <div class="box_child">
+                                            <div class="img">
+                                                <img :src="line.imageUrl"/>
+                                                <div class="timeBox">
+                                                    <p class="time">{{dateFormat(line.contentDatetime, 'DD')}}</p>
+                                                    <p class="year">{{dateFormat(line.contentDatetime, "YYYY-MM")}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="textWrap">
+                                                <p class="text">
+                                                    {{line.contentTitle}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="fake_item"></div>
+                                </div>
+                            </div>
+                        </div>
+                    <el-pagination
+                        background
+                        @current-change="list"
+                        :page-size="page.pageSize"
+                        :current-page.sync="page.pageNo"
+                        layout="prev, pager, next, jumper"
+                        :total="page.contentCount">
+                    </el-pagination>
+                    </div>
+                `,
+                </#if>
+                mixins: [mixin],
+                data: function() {
+                    return {
+                        page: {
+                            //当前页数
+                            pageNo: 1,
+                            //每页文章条数
+                            pageSize: 5,
+                            //页数总数
+                            pageTotal: 0,
+                            //内容总数
+                            contentCount: 0
+                        },
+                        num:-1,
+                        lines: []
+                    }
+                },
+                methods: {
+                    list: function(pageCur) {
+                        var that = this
+                        that.page.pageNo = pageCur
+                        ms.http.post("/cms/content/list.do", Object.assign({}, {
+                            categoryId: '${field.typeid}'
+                        }, that.page)).then(function(res) {
+                            that.page.contentCount = res.data.total
+                            that.lines = res.data.rows.map(function(row) {
+                                if (row.contentImg) {
+                                    var img = JSON.parse(row.contentImg)
+                                    if (img.length > 0) {
+                                    row.imageUrl = '{ms:global.host/}' + img[0].path
+                                    }
+                                }
+                                if(row.contentType.indexOf('tv')!=-1){
+                                    row.link = that.getSimpleText(row.contentDetails);
+                                    row.link = row.link.replace(/amp;/g,'')
+                                }
+                                return row
+                            })
+                            if(pageCur){
+                                $("html, body").scrollTop(0).animate({scrollTop: $("#anchor1").offset().top});
+                                // window.location.href = "#anchor1"
+                            }
+                            console.log('lines:', that.lines)
+                        }).catch(function(err) {
+                            console.error('error:', err)
+                        })
+                    },
+                    getSimpleText(html) {
+                        var re1 = new RegExp("<.+?>", "g");//匹配html标签的正则表达式，"g"是搜索匹配多个符合的内容
+                        var msg = html.replace(re1, '');//执行替换成空字符
+                        return msg;
+                    },
+                    dateFormat: function(date, fmt="YYYY-MM-DD"){
+                        return moment(date).format(fmt)
+                    },
+                    handleJournlism(item){
+                        if(item.contentType.indexOf('tv')!=-1){
+                            this.goto(item.link)
+                        }else {
+                            {ms:channel type='self'}
+                                this.goto("{ms:global.url/}${field.typepath}/"+ item.id + ".html")
+                            {/ms:channel}
+                        }
+                    },
+                    handleVideo(item){
+                        if(item.contentType.indexOf('tv')!=-1){
+                            this.goto(item.link)
+                        }else {
+                            {ms:channel type='self'}
+                                this.goto("{ms:global.url/}${field.typepath}/"+ item.id + ".html")
+                            {/ms:channel}
+                        }
+                    }
+                },
+                mounted: function() {
+                    if(this.$route.path=='/journalism/meitibaodao'){
+                        this.page.pageSize = 9;
+                    }
+                    this.list()
+                }
+            }
+        },
+        {/ms:channel}
+    ] })
+    var app = new Vue({
+        el: '#app',
+        router: router,
+        mixins: [mixin],
+        data: {
+            hasRoute: true,
+            typePath: '<#if field.typeid?has_content>${field.typeid}<#if field.parentids?has_content>,${field.parentids}</#if><#else>0</#if>'
+        },
+        methods: {
+            switchShow: function(arr){
+                var that = this
+                arr.forEach(function(x){
+                let e = that.$el.querySelector("#key_"+x)
+                    if(e) {
+                        e.style.display=e.style.display=='none'?'flex':'none'
+                    }
+                })
+            },
+            handleCurrentChange: function(val) {
+                if(val==1) {
+                    location.href = "{ms:global.url/}${field.categoryPath}/index.html";
+                } else {
+                    location.href = "{ms:global.url/}${field.categoryPath}/list-" + val + ".html";
+                }
+            }
+        },
+        created: function(){
+            {ms:channel type='son' size=1}
+            if (this.$route.path == '/') {
+                this.push('${field.typepath}')
+            }
+            {/ms:channel}
+        }
+    })
+    document.querySelector('#anchor1').scrollIntoView({
+        behavior: "smooth", // 定义动画过渡效果， "auto"或 "smooth" 之一。默认为 "auto"
+        block: "center", // 定义垂直方向的对齐， "start", "center", "end", 或 "nearest"之一。默认为 "start"
+        inline: "nearest" // 定义水平方向的对齐， "start", "center", "end", 或 "nearest"之一。默认为 "nearest"
+    })
+    window.onload = function(){
+        for(let i=0; i<$('.middle').length; i++){
+            let flag = $('.middle').eq(i).attr('flag') || '';
+            if(flag!=""&&flag.indexOf('tv')!=-1){
+                let dom = $('.middle').eq(i).find('.hidden');
+                let link = dom.find('a').html();
+                $('.middle').eq(i).find('.link').attr('href',link);
+            }
+        }
+    }
+</script>
+<script src="{ms:global.host/}/{ms:global.style/}/utils/head.js"></script>
+<script src="{ms:global.host/}/{ms:global.style/}/js/journalism.js" defer></script>
+</html>
