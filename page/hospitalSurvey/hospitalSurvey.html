@@ -97,7 +97,7 @@
                     <div class="imgs">
                         <img src="{ms:global.host/}/{ms:global.style/}/images/01.png" alt="">
                     </div>
-                    <p class="name">医院概况</p>
+                    <p class="name">${field.typetitle}</p>
                     <div class="imgs">
                         <img src="{ms:global.host/}/{ms:global.style/}/images/02.png" alt="">
                     </div>
@@ -230,7 +230,7 @@
                                     <div class="banner">
                                         <div class="swiper-container _swiper-container_new">
                                             <div class="swiper-wrapper">
-                                                {ms:arclist typeid='1422037648759967745'}
+                                                {ms:arclist orderby='sort' typeid='1422037648759967745'}
                                                 <div class="swiper-slide">
                                                     <div class="box">
                                                         <img src="{ms:global.host/}{@ms:file field.litpic/}" alt="">
@@ -239,7 +239,7 @@
                                                 {/ms:arclist}
                                             </div>
                                             <!-- Add Pagination -->
-                                            <div class="swiper-pagination"></div>
+                                            <div class="swiper-pagination1"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -714,11 +714,24 @@
                     }
                 }
             });
-            var swiperTwo = new Swiper('._swiper-container_new', {
-                pagination: '.swiper-pagination',
-                slidesPerView: 3,
-                paginationClickable: true
-            });
+            this.$nextTick(() => {
+                new Swiper('._swiper-container_new', {
+                    pagination: '.swiper-pagination1',
+                    slidesPerView: 3,
+                    paginationClickable: true
+                });
+                let len = $('._swiper-container_new .swiper-slide').length;
+                if(len<=3){
+                    $('._swiper-container_new .swiper-pagination1').hide();
+                }else {
+                    $('._swiper-container_new .swiper-pagination1').show();
+                }
+            })
+            // var swiperTwo = new Swiper('._swiper-container_new', {
+            //     pagination: '.swiper-pagination1',
+            //     slidesPerView: 3,
+            //     paginationClickable: true
+            // });
             let title = $('.swiper-slide.active').attr('title');
             if(title=='交通路线'){
                 swiper.slideTo(2, 1000, false);
@@ -807,11 +820,11 @@
             }
         });
     },100)
-    var swiperTwo = new Swiper('._swiper-container_new', {
-        pagination: '.swiper-pagination',
-        slidesPerView: 3,
-        paginationClickable: true
-    });
+    // var swiperTwo = new Swiper('._swiper-container_new', {
+    //     pagination: '.swiper-pagination1',
+    //     slidesPerView: 3,
+    //     paginationClickable: true
+    // });
     $('.swiper-container-vertical .swiper-slide .box').click(function(){
         let idx = $(this).parent('.swiper-slide').index();
         $('.swiper-container-vertical .swiper-slide .box').removeClass('active');
@@ -829,7 +842,21 @@
     $('.tab_wrap .swiper-wrapper .swiper-slide').click(function(){
         // swiper[0].init();
         let idx = $(this).index();
-        if(($(this).attr('title')=='院容院貌')){
+        if(($(this).attr('title')=='医院介绍')){
+            setTimeout(()=>{
+                var swiperTwo = new Swiper('._swiper-container_new', {
+                    pagination: '.swiper-pagination1',
+                    slidesPerView: 3,
+                    paginationClickable: true
+                });
+                let len = $('._swiper-container_new .swiper-slide').length;
+                if(len<=3){
+                    $('._swiper-container_new .swiper-pagination1').hide();
+                }else {
+                    $('._swiper-container_new .swiper-pagination1').show();
+                }
+            })
+        }else if(($(this).attr('title')=='院容院貌')){
             setTimeout(()=>{
                 $('#featuresId .box').click(function(){
                     let idx = $(this).index();
@@ -1230,9 +1257,13 @@
         height: 21px!important;
         left: 12px!important;
         overflow: hidden!important;
-        background-image: url(http://api0.map.bdimg.com/images/mapctrls2d0.png)!important;
+        background-image: url(https://api.map.baidu.com/images/mapctrls2d0.png)!important;
         background-repeat: no-repeat!important;
         z-index: 10!important;
+        position: absolute!important;
+    }
+    .BMap_stdMpZoomIn {
+        background-position: 0 -221px!important;
     }
     .BMap_stdMpZoomOut{
         background-position: 0px -265px!important;

@@ -345,7 +345,7 @@ line-height: 2;
 }
 .wrap .container .content_wrap .banner_wrap .honor .banner .swiper-container{
   width: 100%;
-  height: 340px;
+  /* height: 340px; */
 }
 .wrap .container .content_wrap .banner_wrap .honor .banner .swiper-container .swiper-wrapper{
   box-sizing: border-box;
@@ -1184,4 +1184,11 @@ line-height: 2;
   color: #fff;
   font-size: 18px;
   padding-left: 1px;
+}
+._swiper-container_new{
+  overflow: hidden;
+}
+.swiper-pagination1{
+  text-align: center;
+  margin-top: 10px;
 }

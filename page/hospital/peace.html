@@ -161,7 +161,9 @@
                 <div class="imgs">
                     <img src="{ms:global.host/}/{ms:global.style/}/images/01.png" alt="">
                 </div>
-                <p class="name">科室介绍</p>
+                {ms:channel type='self' typeid='1418491732039917570'}
+                <p class="name">${field.typetitle}</p>
+                {/ms:channel}
                 <div class="imgs">
                     <img src="{ms:global.host/}/{ms:global.style/}/images/02.png" alt="">
                 </div>
@@ -273,7 +275,7 @@
         methods: {
             list: function() {
                 var that = this
-                    var page = {pageNo: 1}
+                    var page = {pageNo: 1,pageSize: 1000}
                     ms.http.post("/cms/expert/list.do", Object.assign({}, {
                         contentType: 'hpfy'
                     }, page)).then(function(res) {
@@ -297,10 +299,10 @@
                             }
                             return row
                         })
-                        let temp = that.lines.filter(item=>{
-                            return item.jobNumber.indexOf('-') == -1
-                        })
-                        that.lines = temp;
+                        // let temp = that.lines.filter(item=>{
+                        //     return item.jobNumber.indexOf('-') == -1
+                        // })
+                        // that.lines = temp;
                         console.log('lines:', that.lines)
                     }).catch(function(err) {
                         console.error('error:', err)

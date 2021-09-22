@@ -339,7 +339,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    font-weight: 18px;
+    font-size: 18px;
   }
   .wrap .center .department .row_title {
     display: flex;

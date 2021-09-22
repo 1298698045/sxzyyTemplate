@@ -140,7 +140,9 @@
                 <div class="imgs">
                     <img src="{ms:global.host/}/{ms:global.style/}/images/01.png" alt="">
                 </div>
-                <p class="name">导师工作</p>
+                {ms:channel type='self' typeid='1403331474317471746'}
+                <p class="name">${field.typetitle}</p>
+                {/ms:channel}
                 <div class="imgs">
                     <img src="{ms:global.host/}/{ms:global.style/}/images/02.png" alt="">
                 </div>
@@ -153,7 +155,7 @@
             {ms:channel type='self' typeid='1403331474317471746'}
             <#assign typeurl=field.typeurl />
             <div class="dynamic tudorTeam">
-                {ms:arclist size=4}
+                {ms:arclist size=3}
                 <#if (field.litpic?? && field.litpic?length > 0)>
                 <div class="box" @click="goto('{ms:global.url/}${typeurl}?AID=${field.id}')">
                     <div class="box_child">
@@ -174,14 +176,15 @@
                 <#else>
                 </#if>
                 {/ms:arclist}
-                <div class="fake_item"></div>
             </div>
             {/ms:channel}
             <div class="row_title">
                 <div class="imgs">
                     <img src="{ms:global.host/}/{ms:global.style/}/images/01.png" alt="">
                 </div>
-                <p class="name">学生工作</p>
+                {ms:channel type='self' typeid='1403331492332007425'}
+                <p class="name">${field.typetitle}</p>
+                {/ms:channel}
                 <div class="imgs">
                     <img src="{ms:global.host/}/{ms:global.style/}/images/02.png" alt="">
                 </div>
@@ -194,7 +197,7 @@
             {ms:channel type='self' typeid='1403331492332007425'}
             <#assign typeurl=field.typeurl />
             <div class="dynamic student">
-                {ms:arclist size=4}
+                {ms:arclist size=3}
                 <div class="box" @click="goto('{ms:global.url/}${typeurl}?AID=${field.id}')">
                     <div class="box_child">
                         <div class="img">
@@ -212,7 +215,6 @@
                     </div>
                 </div>
                 {/ms:arclist}
-                <div class="fake_item"></div>
             </div>
             {/ms:channel}
         </div>

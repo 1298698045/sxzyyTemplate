@@ -25,6 +25,21 @@
         #swiperId.swiperId{
             transition-duration: 150ms !important;
         }
+        .keyword{
+            padding-left: 20px;
+            padding-bottom: 20px;
+        }
+        .keyword span{
+            color: #815b3f;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .keyword .empty{
+            margin: 30px 0;
+            font-size: 28px;
+            text-align: center;
+            color: #999;
+        }
     </style>
 </head>
 <body>
@@ -38,7 +53,7 @@
                     <div class="imgs">
                         <img src="{ms:global.host/}/{ms:global.style/}/images/01.png" alt="">
                     </div>
-                    <p class="name">出诊动态</p>
+                    <p class="name">${field.typetitle}</p>
                     <div class="imgs">
                         <img src="{ms:global.host/}/{ms:global.style/}/images/02.png" alt="">
                     </div>
@@ -468,6 +483,10 @@
                                 <button class="btn" @click="handleReset">重置</button>
                             </div>
                         </div>
+                        <div class="keyword" v-if="isKeyWord">
+
+                            <div class="empty">暂无数据</div>
+                        </div>
                         <div class="blockWrap active" v-if="queryList.length>0">
                             <div class="top_back"></div>
                             <div class="cont_wrap">
@@ -516,7 +535,8 @@
                             isShow:false,
                             goodAt:"",
                             doctorName: "",
-                            localList: []
+                            localList: [],
+                            isKeyWord:false
                         }
                     },
                     methods: {
@@ -599,6 +619,12 @@
                                         return RegExp(this.doctorName).test(item.name)
                                     }
                                 })
+                            }
+
+                            if(this.queryList.length === 0){
+                                this.isKeyWord = true;
+                            }else {
+                                this.isKeyWord = false;
                             }
                             // this.queryList = this.queryList.filter(item=>{
                             //     if((this.departmentId!=''&&this.departmentId == item.departmentId)&&this.doctorName!=''){
