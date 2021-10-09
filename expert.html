@@ -1,49 +1,105 @@
 <script type="text/x-template" id="expert">
-    <div class="swiper-container1">
-        <div class="swiper-wrapper headPhoto">
-            <div class="swiper-slide" v-for="line in lines">
-                <div class="box">
-                    <div class="block">
-                        <div class="hover" @click="handleRouter(line)">
-                            <div class="box_child">
-                                <div class="pad">
-                                    <div class="img">
-                                        <img :src="line.portraitUrl" alt="" />
-                                    </div>
-                                    <p class="name">{{line.name}}</p>
-                                    <p class="position">{{line.technicalTitle}}</p>
-                                </div>
-                            </div>
-                            <div class="box_active_wrap">
-                                <div class="box_active">
-                                    <div class="descWrap">
-                                        <p class="text">
-                                            {{line.briefIntro || ''}}
-                                        </p>
-                                        <p class="title" v-show="line.briefIntro&&line.briefIntro.length<109">擅长：</p>
-                                        <p class="text" v-show="line.briefIntro&&line.briefIntro.length<109">
-                                            {{line.goodAt}}
-                                        </p>
+    <div>
+
+        <div class="swiper-container1">
+            <div class="swiper-wrapper headPhoto">
+                <div class="swiper-slide" v-for="line in lines">
+                    <div class="box">
+                        <div class="block">
+                            <div class="hover" @click="handleRouter(line)">
+                                <div class="box_child">
+                                    <div class="pad">
+                                        <div class="img">
+                                            <img :src="line.portraitUrl" alt="" />
+                                        </div>
+                                        <p class="name">{{line.name}}</p>
+                                        <p class="position">{{line.technicalTitle}}</p>
                                     </div>
                                 </div>
+                                <div class="box_active_wrap">
+                                    <div class="box_active">
+                                        <div class="descWrap">
+                                            <p class="text">
+                                                {{line.briefIntro || ''}}
+                                            </p>
+                                            <p class="title" v-show="line.briefIntro&&line.briefIntro.length<109">擅长：</p>
+                                            <p class="text" v-show="line.briefIntro&&line.briefIntro.length<109">
+                                                {{line.goodAt}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="back_bord">
-                            {ms:channel type='self' typeid='1401911628809506818'}
-                            <div class="back" @click="handleDept(line)">
-                                {{line.departmentName}}
+                            <div class="back_bord">
+                                {ms:channel type='self' typeid='1401911628809506818'}
+                                <div class="back" @click="handleDept(line)">
+                                    {{line.departmentName}}
+                                </div>
+                                {/ms:channel}
                             </div>
-                            {/ms:channel}
-                        </div>
-                        <div class="back_row">
-                            <a class="cel_o" href="#">挂号</a>
-                            <a class="cel_t"  target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ9">问诊</a>
+                            <div class="back_row">
+                                <a class="cel_o" href="#">挂号</a>
+                                <a class="cel_t"  target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ9">问诊</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="swiper-pagination1"></div>
         </div>
-        <div class="swiper-pagination1"></div>
+        <div class="mobileExpert">
+            <div class="swiper-container-mobile">
+                <div class="swiper-wrapper headPhoto-mobile">
+                    <div class="swiper-slide" v-for="item in linesMobile">
+                        <div class="box" v-for="line in item">
+                            <div class="block">
+                                <div class="hover" @click="handleRouter(line)">
+                                    <div class="box_child">
+                                        <div class="pad">
+                                            <div class="img">
+                                                <img :src="line.portraitUrl" alt="" />
+                                            </div>
+                                            <p class="name">{{line.name}}</p>
+                                            <p class="position">{{line.technicalTitle}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box_active_wrap">
+                                    <div class="box_active">
+                                        <div class="descWrap">
+                                            <p class="text">
+                                                {{line.briefIntro || ''}}
+                                            </p>
+                                            <p class="title" v-show="line.briefIntro&&line.briefIntro.length<109">擅长：</p>
+                                            <p class="text" v-show="line.briefIntro&&line.briefIntro.length<109">
+                                                {{line.goodAt}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="back_bord">
+                                    {ms:channel type='self' typeid='1401911628809506818'}
+                                    <div class="back" @click="handleDept(line)">
+                                        {{line.departmentName}}
+                                    </div>
+                                    {/ms:channel}
+                                </div>
+                                <div class="back_row">
+                                    <a class="cel_o" href="#">挂号</a>
+                                    <a class="cel_t"  target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ9">问诊</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination-mobile"></div>
+            </div>
+            {ms:channel type='self' typeid='1400725472675786754'}
+            <div class="browseMore active"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                浏览更多专家介绍&nbsp;&nbsp;+
+            </div>
+            {/ms:channel}
+        </div>
     </div>
 </script>
 <script>
@@ -51,10 +107,14 @@ Vue.component('Expert', {
     template: '#expert',
     data: function() {
         return {
-            lines: []
+            lines: [],
+            linesMobile: []
         }
     },
     methods: {
+        goto: function(url) {
+            window.open(url)
+        },
         list: function() {
             var that = this
                 var page = {pageNo: 1,pageSize:100}
@@ -77,7 +137,13 @@ Vue.component('Expert', {
                         return row
                     })
                     that.lines = list.sort(that.compare('sortIdx'))
+                    var result = [];
+                    for(var i = 0,len = that.lines.length;i < len; i+=6){
+                        result.push( that.lines.slice(i,i+6));
+                    }
+                    that.linesMobile = result;
                     console.log('lines:', that.lines)
+                    console.log('mobile:',that.linesMobile)
                 }).catch(function(err) {
                     console.error('error:', err)
                 })

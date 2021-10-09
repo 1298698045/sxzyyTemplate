@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8"/>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=.3; minimum-scale=.3; maximum-scale=.3"> -->
-    <meta name="viewport" content="width=1300px"/>
+    <!-- <meta name="viewport" content="width=1300px"/> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="shortcut icon" href="{ms:global.host/}/{ms:global.style/}/images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css" />
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css" />
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/index.css" />
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/head.css" />
-    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/footer.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/footer.css">
     <script type="text/javascript" src="${base}/static/plugins/vue/2.6.9/vue.js"></script>
     <script type="text/javascript" src="${base}/static/plugins/vue-router/3.5.1/vue-router.js"></script>
@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app" class="wrap" v-cloak>
-        {ms:channel type='self' typeid='1433675707204517889' }
+        {ms:channel type='self' typeid='1433644858958667777' }
              {ms:arclist}
             <div id="imgDiv" @click="goto('${field.keyword}')" style="position:fixed;left:50px;top:60px;z-index:9999999;">
                 <div id="a" style="width:20px;height:20px;position: absolute;right:0px;background:rgba(255,255,255,.3);text-align: center;cursor: pointer;">×
@@ -67,7 +67,7 @@
                 <div class="swiper-pagination"></div>
                 
                 <!-- 如果需要导航按钮 -->
-                <div style="position: relative;width: 1230px;margin: 0 auto;">
+                <div class="swiper-button" style="position: relative;width: 1230px;margin: 0 auto;">
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
@@ -198,6 +198,12 @@
                     {/ms:channel}
                     
                 </div>
+                <!-- 浏览更多 -->
+                {ms:channel type='son' typeid='1400716168132456449'}
+                <div class="browseMore<#if field.index==1> active</#if>"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                    浏览更多医院新闻&nbsp;&nbsp;+
+                </div>
+                {/ms:channel}
                 <div class="right_box">
                     <div class="row">
                         <div class="l_name">
@@ -223,6 +229,19 @@
                         {/ms:arclist}
                         
                     </div>
+                    <#if field.index==1>
+                    <div class="browseMore<#if field.index==1> active</#if> ${field.pinyin}"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                        浏览更多招标公告&nbsp;&nbsp;+
+                    </div>
+                    <#elseif field.index==2>
+                    <div class="browseMore<#if field.index==1> active</#if> ${field.pinyin}"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                        浏览更多招聘信息&nbsp;&nbsp;+
+                    </div>
+                    <#elseif field.index==3>
+                    <div class="browseMore<#if field.index==1> active</#if> ${field.pinyin}"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                        浏览更多医讯公告&nbsp;&nbsp;+
+                    </div>
+                    </#if>
                     {/ms:channel}
                     {/ms:channel}
                 </div>
@@ -394,13 +413,15 @@ var xin = true, // true向右偏移,false向左偏移，首次为true，默认�
         var $obj;
         $(function () {
             $obj = $("#imgDiv");
-            var time = window.setInterval("move()", delay);
-            $obj.mouseover(function () {
-                clearInterval(time)
-            });
-            $obj.mouseout(function () {
-                time = window.setInterval("move()", delay)
-            });
+            if($obj.length>0){
+                var time = window.setInterval("move()", delay);
+                $obj.mouseover(function () {
+                    clearInterval(time)
+                });
+                $obj.mouseout(function () {
+                    time = window.setInterval("move()", delay)
+                });
+            }
         });
  
         function move() {
@@ -564,10 +585,18 @@ var xin = true, // true向右偏移,false向左偏移，首次为true，默认�
             mySwiper1.startAutoplay();
         }
     },300)
+    // setTimeout(()=>{
+        var mySwiper_mobile = new Swiper('.swiper-container-mobile', {
+            autoplay: 2000,
+            slidesPerView: 'auto',
+            paginationClickable:true,
+            observer:true,
+            observeParents:true,
+            pagination: '.swiper-pagination-mobile',
+        });
+    // },100)
     window.onload = function(){
         $('.departList .uls .lis').eq(0).addClass('active');
-        
-
         for(var i = 0; i < $('.News .cont').length; i++){
             for(var j = 0; j < $('.News .cont').eq(i).find('.swiper-slide').length; j++){
                 let flag = $('.News .cont').eq(i).find('.swiper-slide').eq(j).attr('flag') || '';

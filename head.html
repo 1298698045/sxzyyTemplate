@@ -126,4 +126,65 @@
             </div>
         </div>
     </div>
+    <div class="mobileHeader">
+        <div class="head_top">
+            <span class="btn active">
+                患者版
+            </span>
+            <span class="btn">
+                员工版
+            </span>
+        </div>
+        <div class="mobileNav">
+            <div class="row">
+                <div class="logo">
+
+                </div>
+                <div class="more" @click="handleNavOpen">
+                    <div v-if="!isNav">
+                        <p class="solid"></p>
+                        <p class="solid"></p>
+                        <p class="solid"></p>
+                    </div>
+                    <div class="close" v-if="isNav">
+
+                    </div>
+                </div>
+            </div>
+            <div class="nav_body_modal" v-if="isNav">
+                <form id="searchDataForm1" action="{ms:global.host/}/mcms/search.do" method="post"> 
+                    <div class="bd_search">
+                        <input type="text" class="inp" name="content_title" placeholder="请输入你要查询的内容">
+                        <span class="search_icon" onclick="document.getElementById('searchDataForm1').submit();"></span>
+                    </div>
+                </form>
+                <ul class="navUls">
+                    <li class="menu">
+                        <div class="row" @click="gotoHref('{ms:global.url/}/home.html')">
+                            首页
+                        </div>
+                    </li>
+                    {ms:channel type='top' flag='nav' orderby='sort'}
+                    <#assign parentlink=field.typelink>
+                    <#assign parentchannel=field>
+                    <li class="menu">
+                        <div class="row">
+                            <span @click="gotoHref('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</span>
+                            <span class="right_icon" @click="handleIsShow('${field.index}')"></span>
+                        </div>
+                        <#if (field.childsize>0)>
+                        <div class="showBox">
+                            {ms:channel type='son' orderby='sort'}
+                            <div class="cel">
+                                <a href="<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>">${field.typetitle}</a>
+                            </div>
+                            {/ms:channel}
+                        </div>
+                        </#if>
+                    </li>
+                    {/ms:channel}
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>

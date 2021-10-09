@@ -8,6 +8,69 @@ li{
 a{
     text-decoration: none;
 }
+@media only screen and (max-width: 750px){
+    .wrap .center .container{
+        width: 375px;
+    }
+    .wrap .center .container .nav .logo{
+        width: 157px;
+        height: 35px;
+    }
+    .wrap .center .container .nav .right_icons .box{
+        width: 25px;
+        height: 23px;
+    }
+    .wrap .center .container .nav .right_icons .box{
+        background-size: 100% 100%!important;
+    }
+    .wrap .center .container .nav{
+        margin-top: 20px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+    .wrap .center .poFixed{
+        width: 335px;
+        height: 340px;
+        top: 40%;
+        background: url('../images/mobileMax.png') no-repeat;
+        background-size: 100% 100%;
+    }
+    .wrap .center .poFixed .banner{
+        width: 246px;
+        height: 246px;
+        margin: 46px auto;
+    }
+    .wrap .center .container .content .right{
+        top: 30px;
+    }
+    .wrap .center .container .nav{
+        align-items: initial;
+    }
+    .wrap .center .container .nav .right_icons .box.l5{
+        margin-top: 10px;   
+    }
+    .wrap .center .container .nav .right_icons .box.l6{
+        margin-top: 10px;   
+    }
+    .wrap .center .container .nav .right_icons .box.l7{
+        margin-top: 10px;   
+    }
+    .wrap .center .container .nav .right_icons .box.l8{
+        margin-top: 10px;   
+    }
+    .wrap .center .container .content{
+        justify-content: center;
+    }
+    .wrap .center .container .content .left{
+        display: none;
+    }
+    .wrap .center .container .content .right .columns .column .box{
+        width: 33px;
+        height: 98px;
+        padding: 0 20px;
+        background-size: contain!important;
+    }
+}
 .wrap .header{
     height: 32px;
     background: url('../images/sx_top.png') repeat;

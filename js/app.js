@@ -3,7 +3,8 @@ var mixin = {
         return {
             isArticle: false,
             hasRoute: this.hasOwnProperty('$route'),
-            selectMenu: ''
+            selectMenu: '',
+            isNav: false
         }
     },
     computed: {
@@ -26,6 +27,14 @@ var mixin = {
         },
         onMenuMouseLeave: function() {
             this.selectMenu = ''
+        },
+        // 导航开关
+        handleNavOpen(){
+            this.isNav = !this.isNav;
+        },
+        handleIsShow(idx){
+            $('.menu').eq(idx).find('.showBox').toggle();
+            $('.menu').eq(idx).find('.row .right_icon').toggleClass('active');
         }
     }
 }
