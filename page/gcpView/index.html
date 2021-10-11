@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -57,6 +57,59 @@
             color: #fff;
             background: url('{ms:global.host/}/{ms:global.style/}/images/tab_child_active.png') no-repeat;
             background-size: 100% 100%;
+        }
+        @media screen and (max-width: 1440px) {
+            .wrap .center{
+                width: 100%!important;
+            }
+            .wrap .center .container{
+                padding-top: 1px;
+            }
+            .wrap .center .container .tabs{
+                padding: 0 10px;
+                justify-content: space-between;
+                box-sizing: border-box;
+            }
+            .wrap .center .container .tabs .tab{
+                width: 24%!important;
+                font-size: 14px;
+                margin-right: 0!important;
+            }
+            .wrap .center .container .tabs .tab.text{
+                height: 31px!important;
+                line-height: 31px!important;
+            }
+            .wrap .center .container .content .NoticeBody{
+                display: block!important;
+                padding: 0 10px;
+                box-sizing: border-box;
+            }
+            .wrap .container .content .NoticeBody .left_wrap{
+                width: 100%!important;
+                height: 370px!important;
+            }
+            .wrap .container .content .NoticeBody .right_wrap{
+                width: 100%!important;
+            }
+            .wrap .container .content .NoticeBody .left_wrap .l_text .row_back span{
+                width: 100%!important;
+            }
+            .wrap .container .content .NoticeBody .left_wrap .l_text{
+                width: 90%!important;
+                height: 90%!important;
+            }
+            .wrap .container .content .NoticeBody .right_wrap .article{
+                width: 96%!important;
+            }
+            .d-visible{
+                width: 100%!important;
+            }
+            .wrap .container .content .NoticeBody .right_wrap .descWrap{
+                width: auto!important;
+            }
+            .wrap .container .content .NoticeBody .left_wrap .l_text .row_back{
+                width: 95%!important;
+            }
         }
     </style>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/pagination.css">

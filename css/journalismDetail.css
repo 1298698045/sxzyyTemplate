@@ -1,3 +1,36 @@
+@media only screen and (max-width: 750px){
+  .wrap .center{
+    width: 100%!important;
+  }
+  .wrap .center .container .l_box .title{
+    font-size: 24px!important;
+  }
+  .wrap .center .container .l_center img{
+    width: 100%!important;
+  }
+  .wrap .center .container .l_box .l_top,.wrap .center .container .l_box .l_bottom{
+    background-size: 100% 100%!important;
+  }
+  .wrap .center .container{
+    width: 100%!important;
+    display: block!important;
+  }
+  .wrap .center .container .l_box{
+    width: 100%!important;
+  }
+  .wrap .center .container .r_box{
+    display: none;
+  }
+  .wrap .center .container .l_box .row .time span{
+    margin: 0!important;
+  }
+  .wrap .center .container .l_box .l_center{
+    padding: 0 10px!important;
+  }
+  .wrap .center .container .l_box .row .r_img{
+    display: none!important;
+  }
+}
 .wrap{
   width: 100%;
   background: url('../images/bg.jpg') no-repeat;

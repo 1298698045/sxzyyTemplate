@@ -1,6 +1,6 @@
 <div class="bottomBack">
     <div class="top"></div>
-    <div class="cont">
+    <div class="cont contPC">
         <div class="minW">
             <div class="box_wrap">
                 {ms:channel type='self' typeid='1403306469080788993'}
@@ -51,6 +51,64 @@
                     <p class="name">健康科普</p>
                 </div>
                 {/ms:channel}
+            </div>
+        </div>
+    </div>
+    <div class="cont contMobile">
+        <div class="minW">
+            <div class="box_wrap">
+                <div class="itemMobile">
+                    {ms:channel type='self' typeid='1403306469080788993'}
+                    <div class="item" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                        <p class="imgs">
+                            <img src="{ms:global.host/}/{ms:global.style/}/images/i.png" alt="">
+                        </p>
+                        <p class="name">出诊信息</p>
+                    </div>
+                    {/ms:channel}
+                    {ms:channel type='self' typeid='1400724319233798146'}
+                    <div class="item" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}${'#/patient/jiuyixuzhi'}</#if>')">
+                        <p class="imgs">
+                            <img src="{ms:global.host/}/{ms:global.style/}/images/icon_2.png" alt="">
+                        </p>
+                        <p class="name">就医须知</p>
+                    </div>
+                    {/ms:channel}
+                    {ms:channel type='self'  typeid='1402954155253919745'}
+                    <div class="item" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}${'#/hospitalSurvey/jiaotongluxian'}</#if>')">
+                        <p class="imgs">
+                            <img src="{ms:global.host/}/{ms:global.style/}/images/icon_3.png" alt="">
+                        </p>
+                        <p class="name">医院位置</p>
+                    </div>
+                    {/ms:channel}
+                </div>
+                <div class="itemMobile">
+                    {ms:channel type='self'  typeid='1400724656644583425'}
+                    <div class="item" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                        <p class="imgs">
+                            <img src="{ms:global.host/}/{ms:global.style/}/images/icon.png" alt="">
+                        </p>
+                        <p class="name">专科专病</p>
+                    </div>
+                    {/ms:channel}
+                    {ms:channel type='self'  typeid='1403323700237922306'}
+                    <div class="item" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                        <p class="imgs">
+                            <img src="{ms:global.host/}/{ms:global.style/}/images/icon_5.png" alt="">
+                        </p>
+                        <p class="name">健康体检</p>
+                    </div>
+                    {/ms:channel}
+                    {ms:channel type='self'  typeid='1400729393410502658'}
+                    <div class="item" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                        <p class="imgs">
+                            <img src="{ms:global.host/}/{ms:global.style/}/images/icon_6.png" alt="">
+                        </p>
+                        <p class="name">健康科普</p>
+                    </div>
+                    {/ms:channel}
+                </div>
             </div>
         </div>
     </div>

@@ -106,8 +106,11 @@
   .wrap .center .department .cont .departList .d_right .solid{
     width: 45px!important;
   }
+  .wrap .center .department .cont .departList .uls{
+    justify-content: space-around!important;
+  }
   .wrap .center .department .cont .departList .uls .lis{
-    margin: 15px 20px 0 20px!important;
+    margin: 10px!important;
   }
   .wrap .center .department .cont .departList .tabs{
     padding: 0 10px;

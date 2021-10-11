@@ -8,6 +8,9 @@
   .wrap .headerWrap{
     margin-bottom: 108px;
   }
+  .wrap .center .Breadcrumb{
+    display: none!important;
+  }
   .wrap .headerWrap .flex_head_container{
     display: none!important;
   }

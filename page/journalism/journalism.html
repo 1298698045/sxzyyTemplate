@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <!-- <meta name="viewport" content="width=1300px"> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -167,13 +168,24 @@
                             {/ms:arclist}
                         </div>
                     </div>
-                    <div class="newPage">
+                    <div class="newPage pagePC">
                         <el-pagination
                             background
                             @current-change="list"
                             :page-size="page.pageSize"
                             :current-page.sync="page.pageNo"
                             layout="prev, pager, next, jumper"
+                            :total="page.contentCount">
+                        </el-pagination>
+                    </div>
+                    <div class="newPage pageMobile">
+                        <el-pagination
+                            small
+                            background
+                            @current-change="list"
+                            :page-size="page.pageSize"
+                            :current-page.sync="page.pageNo"
+                            layout="prev, pager, next"
                             :total="page.contentCount">
                         </el-pagination>
                     </div>
@@ -203,14 +215,27 @@
                                 </div>
                             </div>
                         </div>
-                    <el-pagination
-                        background
-                        @current-change="list"
-                        :page-size="page.pageSize"
-                        :current-page.sync="page.pageNo"
-                        layout="prev, pager, next, jumper"
-                        :total="page.contentCount">
-                    </el-pagination>
+                        <div class="newPage pagePC">
+                            <el-pagination
+                                background
+                                @current-change="list"
+                                :page-size="page.pageSize"
+                                :current-page.sync="page.pageNo"
+                                layout="prev, pager, next, jumper"
+                                :total="page.contentCount">
+                            </el-pagination>
+                        </div>
+                        <div class="newPage pageMobile">
+                            <el-pagination
+                                small
+                                background
+                                @current-change="list"
+                                :page-size="page.pageSize"
+                                :current-page.sync="page.pageNo"
+                                layout="prev, pager, next"
+                                :total="page.contentCount">
+                            </el-pagination>
+                        </div>
                     </div>
                 `,
                 </#if>
@@ -253,7 +278,7 @@
                                 return row
                             })
                             if(pageCur){
-                                $("html, body").scrollTop(0).animate({scrollTop: $("#anchor1").offset().top});
+                                $("html, body").scrollTop(0).animate({scrollTop: $("#anchor1").offset().top - 30});
                                 // window.location.href = "#anchor1"
                             }
                             console.log('lines:', that.lines)

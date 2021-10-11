@@ -1,3 +1,35 @@
+@media only screen and (max-width: 750px){
+  .wrap .center .container .content .NoticeBody{
+    display: block!important;
+  }
+  .wrap .center .container .content{
+    padding: 0 10px!important;
+    box-sizing: border-box;
+  }
+  .wrap .container .content .NoticeBody .left_wrap{
+    width: 100%!important;
+    height: 370px!important;
+}
+.wrap .container .content .NoticeBody .right_wrap{
+    width: 100%!important;
+}
+.wrap .container .content .NoticeBody .left_wrap .l_text{
+    width: 90%!important;
+    height: 90%!important;
+}
+.wrap .container .content .NoticeBody .right_wrap .article{
+    width: 96%!important;
+}
+.d-visible{
+    width: 100%!important;
+}
+.wrap .container .content .NoticeBody .right_wrap .descWrap{
+    width: auto!important;
+}
+.wrap .container .content .NoticeBody .left_wrap .l_text .row_back{
+    width: 95%!important;
+}
+}
 .wrap .container .content .NoticeBody {
   display: flex;
   justify-content: space-between;

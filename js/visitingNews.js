@@ -9,10 +9,14 @@ $(function(){
         //返回参数值
         return result ? decodeURIComponent(result[2]) : null;
     }
-    
+    var windowWidth = $(window).width();
+    var slidesPerView = 5;
+    if(windowWidth<780){
+        slidesPerView = 2;
+    }
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
-        slidesPerView: 5,
+        slidesPerView: slidesPerView,
         paginationClickable: true,
         spaceBetween: 30,
         nextButton: '.right_icon',

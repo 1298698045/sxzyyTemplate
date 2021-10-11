@@ -1,3 +1,62 @@
+@media screen and (max-width: 1440px) {
+  .wrap .center{
+    width: 100%!important;
+  }
+  .wrap .center .container{
+    padding-top: 1px;
+  }
+  .wrap .center .container .tabs .tab{
+    margin-right: 0!important;
+    justify-content: center;
+    flex: 1;
+  }
+  .wrap .center .container .tabs .tab .text{
+    width: 90%!important;
+    height: 36px!important;
+    line-height: 36px!important;
+  }
+  .wrap .center .container .content .dynamic .block{
+    width: 100%!important;
+    height: auto!important;
+    background-size: 100% 100%!important;
+  }
+  .wrap .center .container .content .dynamic .block .box{
+    display: block!important;
+  }
+  .wrap .center .container .content .dynamic .block .box .rightCont{
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    box-sizing: border-box;
+    justify-content: space-between;
+  }
+  .wrap .center .container .content .dynamic .block .box .rightCont .title{
+    margin: 24px 0 !important;
+  }
+  .wrap .center .container .content .dynamic .block .box .img{
+    width: 100%!important;
+  }
+  .pagePC{
+    display: none!important;
+  }
+  .pageMobile{
+    display: block!important;
+  }
+  .wrap .center .container .content .pageMobile .el-pagination .el-pager .number{
+    width: 10px!important;
+    background: initial!important;
+    line-height: 58px!important;
+  }
+  .wrap .center .container .content .dynamic .block .box .rightCont .boxTime{
+    background-size: 100% 100%!important;
+  }
+}
+.pagePC{
+  display: block;
+}
+.pageMobile{
+  display: none;
+}
 .wrap{
   width: 100%;
   background: url('../images/bg.jpg') no-repeat;

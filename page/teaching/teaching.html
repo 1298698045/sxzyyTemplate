@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -149,13 +149,24 @@
                                 </div>
                             </li>
                         </ul>
-                        <div v-if="page.contentCount>6">
+                        <div class="pagePC" v-if="page.contentCount>6">
                             <el-pagination
                                 background
                                 @current-change="list"
                                 :page-size="page.pageSize"
                                 :current-page.sync="page.pageNo"
                                 layout="prev, pager, next, jumper"
+                                :total="page.contentCount">
+                            </el-pagination>
+                        </div>
+                        <div class="pageMobile" v-if="page.contentCount>6">
+                            <el-pagination
+                                small
+                                background
+                                @current-change="list"
+                                :page-size="page.pageSize"
+                                :current-page.sync="page.pageNo"
+                                layout="prev, pager, next"
                                 :total="page.contentCount">
                             </el-pagination>
                         </div>
@@ -199,7 +210,7 @@
                                 }else {
                                     row.isTv = false;
                                 }
-                                let date = new Date(row.contentDatetime);
+                                let date = new Date(row.contentDatetime.replace(/\-/g,'/'));
                                 yy = date.getFullYear();
                                 mm = date.getMonth()+1;
                                 console.log(`${yy}-${mm}`,yy,mm)
