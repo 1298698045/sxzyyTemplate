@@ -52,6 +52,8 @@ var mixin = {
             $('.menu').eq(idx).find('.row .right_icon').toggleClass('active');
             $('.showBox').not($('.menu').eq(idx).find('.showBox')).hide();
             $('.row .right_icon').not($('.menu').eq(idx).find('.row .right_icon')).removeClass('active');
+            var top = $('.wrap .mobileHeader .mobileNav .nav_body_modal').scrollTop()+100
+            $('.wrap .mobileHeader .mobileNav .nav_body_modal').scrollTop(top)
         },
         handleIsScroll() {
             let scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
