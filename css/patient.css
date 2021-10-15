@@ -9,6 +9,9 @@
   .wrap .center .container .content .table .tbody .dataRow td{
     min-width: 100px!important;
   }
+  .wrap .center .container .content .table thead tr th{
+    min-width: 100px!important;
+  }
   .wrap .center .container .content .blockWrap .cont_wrap{
     overflow: auto;
   }
@@ -22,11 +25,63 @@
   .wrap .center .container .tab_wrap .swiper-container #swiperId .swiper-slide{
     width: 130px !important;
     height: 60px !important;
+    line-height: 60px!important;
+    white-space: nowrap;
     background-size: 100% 100%!important;
   }
   .wrap .center .container .tab_wrap .swiper-container #swiperId .swiper-slide.active{
     background-size: 100% 100%!important;
   }
+  .wrap .center .container .content .table .tbody .dataRow .operation{
+    min-width: 180px!important;
+  }
+  .wrap .center .container .content .formSearch{
+    display: block!important;
+  }
+  .wrap .center .container .content .formSearch span{
+    display: none;
+  }
+  .wrap .center .container .content .formSearch .filed{
+    width: 88%!important;
+    margin-right: 0!important;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .wrap .center .container .content .formSearch .filed .inp{
+    width: 100%!important;
+  }
+  .wrap .center .container .content .formSearch .fieldMobile{
+    display: flex;
+    justify-content: center;
+  }
+  .wrap .center .container .content #tab_child{
+    display: none;
+  }
+  .wrap .center .container .content .swiper-container-child #swiperId_child{
+    display: flex!important;
+  }
+  .wrap .center .container .content .box{
+    margin: 20px 10px!important;
+    overflow: hidden;
+  }
+  .wrap .center .container .content .box #swiperId_child .swiper-slide{
+    width: 50%;
+    margin-right: 30px;
+  }
+  .wrap .center .container .content .box p{
+    width: 100%!important;
+    height: 31px!important;
+    line-height: 31px!important;
+    background-size: 100% 100% !important;
+    font-size: 14px!important;
+  }
+}
+/* 隐藏移动端tab */
+.wrap .center .container .content .swiper-container-child #swiperId_child{
+  display: none;
+}
+.wrap .center .container .content .formSearch .fieldMobile{
+  display: flex;
 }
 .wrap {
   width: 100%;

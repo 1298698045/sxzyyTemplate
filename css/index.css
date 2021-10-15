@@ -30,8 +30,8 @@
     box-sizing: border-box;
   }
   .wrap .center .module .box{
-    width: 90px!important;
-    height: 90px!important;
+    width: 80px!important;
+    height: 80px!important;
     background-size: 100% 100%!important;
   }
   .wrap .center .module .box .box_child .imgs{
@@ -40,6 +40,7 @@
   }
   .wrap .center .module .box .box_child .text{
     font-size: 12px!important;
+    padding-top: 5px!important;
   }
   .wrap .spacing{
     width: 100%!important;

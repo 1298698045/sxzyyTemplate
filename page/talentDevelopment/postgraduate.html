@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -44,6 +44,17 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="mobileDescWrap">
+            {ms:arclist artid='1407942628843040770'}
+            <p class="title">${field.title}</p>
+            <p class="desc">${field.descrip}</p>
+            <div class="preview">
+                <i class="icon top_icon"></i>
+                <p class="text" @click="goto('{ms:global.url/}${field.link}')">查看详细</p>
+                <i class="icon bottom_icon"></i>
+            </div>
+            {/ms:arclist}
         </div>
         {ms:channel type='son' size=2}
         <#assign typeurl=field.typeurl />
@@ -216,6 +227,9 @@
                 </div>
                 {/ms:arclist}
             </div>
+            <div class="loadMore" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                加载更多&nbsp;&nbsp;+
+            </div>
             {/ms:channel}
         </div>
         <#include "foot.html" />
@@ -313,9 +327,10 @@
             }
             return len;
         }
-        
-        var scrollView = new scrollBar('#rightBox','.scrollbox',50,0,'X');
-        scrollView.init();
+        if($(window).width()>780){
+            var scrollView = new scrollBar('#rightBox','.scrollbox',50,0,'X');
+            scrollView.init();
+        }
     })
 </script>
 </html>

@@ -1,4 +1,89 @@
-  .wrap {
+@media screen and (max-width:750px){
+  .wrap .center{
+    width: 100%!important;
+    padding-top: 1px;
+  }
+  .wrap .center .features .dynamic {
+    margin: 20px 10px!important;
+  }
+  .wrap .center .features .dynamic .box{
+    width: 48%!important;
+    height: 156px!important;
+    margin-bottom: 10px!important;
+    background-size: 100% 100%!important;
+  }
+  .wrap .center .features .dynamic .box .box_child .text_Wrap .text{
+    margin: 10px!important;
+    width: 90%!important;
+  }
+  .wrap .center .features .dynamic .box .box_child .img{
+    height: 100px!important;
+  }
+  .modal_modal .popupWrap{
+    width: 90%!important;
+  }
+  .modal_modal .popupWrap .block{
+    width: 100%!important;
+  }
+  .modal_modal .popupWrap .block .swiper-container_modal{
+    width: 100%!important;
+    height: auto!important;
+  }
+  .modal_modal .popupWrap .block .swiper-container_modal .swiper-wrapper .swiper-slide .imgBox{
+    width: 100%!important;
+    height: 200px!important;
+  }
+  .modal_modal .popupWrap .block .row{
+    width: 100%!important;
+  }
+  .modal_modal .popupWrap .block .cancel{
+    margin-right: 10px!important;
+  }
+  .wrap .pagePC{
+    display: none!important;
+  }
+  .wrap .pageMobile{
+    display: block!important;
+  }
+  .wrap .center .pageMobile .el-pagination .el-pager .number{
+    width: 10px!important;
+    background: initial!important;
+    line-height: 58px!important;
+    margin: 0!important;
+  }
+  .wrap .center .pageMobile .el-pagination .el-pager .more{
+    width: 10px!important;
+  }
+  .wrap .center .dynamic{
+    flex-wrap: wrap;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin: 20px 0 20px 0!important;
+  }
+  .wrap .center .dynamic .box{
+    width: 48%!important;
+    height: 156px!important;
+    background-size: 100% 100%!important;
+    margin-bottom: 10px!important;
+  }
+  .wrap .center .dynamic .box .box_child .img {
+    height: 100px!important;
+  }
+  .wrap .center .dynamic .box .box_child .textWrap{
+    padding: 0!important;
+  }
+  .wrap .center .dynamic .box .box_child .textWrap .text{
+    width: 90%!important;
+    margin: 10px!important;
+  }
+}
+.wrap .pagePC{
+  display: block;
+}
+.wrap .pageMobile{
+  display: none;
+}
+.wrap {
     width: 100%;
     background: url('../images/bg.jpg') no-repeat;
     background-position: center;

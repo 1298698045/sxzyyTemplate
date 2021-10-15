@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -19,6 +19,9 @@
         .wrap .center .container .tabs {
             display: flex;
         }
+        .wrap .center .container .tabs.tabsMobile{
+                display: none;
+            }
         .wrap .center .container .tabs .tab {
             margin-right: 30px;
         }
@@ -58,6 +61,27 @@
             background: url('{ms:global.host/}/{ms:global.style/}/images/tab_child_active.png') no-repeat;
             background-size: 100% 100%;
         }
+        @media screen and (max-width: 750px){
+            .wrap .center .container .tabs{
+                margin: 0 10px;
+                overflow: hidden;
+            }
+            .wrap .center .container .tabs.tabsPC{
+                display: none!important;
+            }
+            .wrap .center .container .tabs.tabsMobile{
+                display: block!important;
+            }
+            .wrap .center .swiperId_child .swiper-slide{
+                width: 50%!important;
+            }
+            .wrap .center .container .tabs .tab.text{
+                width: 100%!important;
+                height: 31px!important;
+                line-height: 31px!important;
+                margin-right: 0!important;
+            }
+        }
     </style>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/pagination.css">
 </head>
@@ -91,7 +115,7 @@
                         <img src="{ms:global.host/}/{ms:global.style/}/images/02.png" alt="">
                     </div>
                 </div>
-                <div class="tabs">
+                <div class="tabs tabsPC">
                     {ms:channel type='son' typeid='1403327431889219586'}
                     <div class="tab text tabs-item"
                      :class="{active : $route.path == '${field.typepath}'}"
@@ -99,6 +123,19 @@
                             ${field.typetitle}
                     </div>
                     {/ms:channel}
+                </div>
+                <div class="swiper-container-child tabs tabsMobile">
+                    <div class="swiper-wrapper" id="swiperId_child">
+                        {ms:channel type='son' typeid='1403327431889219586'}
+                        <div class="swiper-slide">
+                            <div class="tab text tabs-item"
+                            :class="{active : $route.path == '${field.typepath}'}"
+                            title="${field.typetitle}" @click="push('${field.typepath}')">
+                                    ${field.typetitle}
+                            </div>
+                        </div>
+                        {/ms:channel}
+                    </div>
                 </div>
                 <router-view></router-view>
 
@@ -186,6 +223,34 @@
             {/ms:channel}
         }
     })
+</script>
+<script>
+    var swiper_child = new Swiper('.swiper-container-child', {
+        slidesPerView: 2,
+        paginationClickable: true,
+        spaceBetween: 30,
+        nextButton: '.right_icon_child',
+        prevButton: '.left_icon_child',
+        onSlideChangeEnd: function(swiper_child){
+            if(swiper_child.isBeginning){
+                swiper_child.prevButton.removeClass('prev_active');
+            }else{
+                swiper_child.prevButton.addClass('prev_active');
+            }
+            if(swiper_child.isEnd){
+                swiper_child.nextButton.addClass('next_active');
+                $('#swiperId_child').css('transition-duration','0ms')
+                $('#swiperId_child').addClass('swiperId_child')
+                var X = $('#swiperId_child').css('transform').replace(/[^0-9\-,]/g,'').split(',')[4]-40
+                $('#swiperId_child').css('transform','translate3d('+X+'px,0px,0px)')
+                setTimeout(function(){
+                    $('#swiperId_child').removeClass('swiperId_child')
+                },150);
+            }else{
+                swiper_child.nextButton.removeClass('next_active');
+            }
+        }
+    });    
 </script>
 <script src="{ms:global.host/}/{ms:global.style/}/js/scroll.js" defer></script>
 </html>

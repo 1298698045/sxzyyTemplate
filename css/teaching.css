@@ -1,4 +1,4 @@
-@media screen and (max-width: 1440px) {
+@media only screen and (max-width: 750px){
   .wrap .center{
     width: 100%!important;
   }

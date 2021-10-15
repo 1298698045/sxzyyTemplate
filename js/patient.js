@@ -9,10 +9,15 @@ $(function(){
         //返回参数值
         return result ? decodeURIComponent(result[2]) : null;
     }
-    
+    var windowWidth = $(window).width();
+    var slidesPerView = 5;
+    if(windowWidth<=780){
+        slidesPerView = 2;
+        $('.swiper-container').removeClass('swiper-no-swiping')
+    }
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
-        slidesPerView: 5,
+        slidesPerView: slidesPerView,
         paginationClickable: true,
         spaceBetween: 30,
         nextButton: '.right_icon',
@@ -25,6 +30,13 @@ $(function(){
             }
             if(swiper.isEnd){
                 swiper.nextButton.addClass('next_active');
+                $('#swiperId').css('transition-duration','0ms')
+                $('#swiperId').addClass('swiperId')
+                var X = $('#swiperId').css('transform').replace(/[^0-9\-,]/g,'').split(',')[4]-40
+                $('#swiperId').css('transform','translate3d('+X+'px,0px,0px)')
+                setTimeout(function(){
+                    $('#swiperId').removeClass('swiperId')
+                },150);
             }else{
                 swiper.nextButton.removeClass('next_active');
             }

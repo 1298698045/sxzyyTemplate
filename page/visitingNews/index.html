@@ -163,6 +163,22 @@
                             <p class="tabC">专家出诊（胜利分院）</p>
                             <p class="tabC">专家出诊（和平分院）</p>
                         </div>
+                        <div class="box swiper-container-child">
+                            <div class="swiper-wrapper" id="swiperId_child">
+                                <div class="swiper-slide">
+                                    <p class="tabC active">专家出诊（总院）</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="tabC">专家出诊（名医门诊）</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="tabC">专家出诊（胜利分院）</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="tabC">专家出诊（和平分院）</p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="blockWrap active">
                             <div class="top_back"></div>
                             <div class="cont_wrap">
@@ -477,11 +493,13 @@
                             <div class="filed">
                                 <input type="text" v-model="doctorName" class="inp" placeholder="医师名称">
                             </div>
-                            <div class="filed">
-                                <button class="btn" @click="handleSearch">搜索</button>
-                            </div>
-                            <div class="filed">
-                                <button class="btn" @click="handleReset">重置</button>
+                            <div class="fieldMobile">
+                                <div class="filed">
+                                    <button class="btn" @click="handleSearch">搜索</button>
+                                </div>
+                                <div class="filed">
+                                    <button class="btn" @click="handleReset">重置</button>
+                                </div>
                             </div>
                         </div>
                         <div class="keyword" v-if="isKeyWord">
@@ -845,6 +863,40 @@
                         load();
                     },100)
                 })
+                $('#swiperId_child .swiper-slide').click(function(){
+                    console.log($(this).index(),'==========')
+                    let idx = $(this).index();
+                    $('#swiperId_child .swiper-slide .tabC').removeClass('active');
+                    $(this).find('.tabC').addClass('active');
+                    $('#visitInfo .blockWrap').hide();
+                    $('#visitInfo .blockWrap').eq(idx).show();
+                })
+                var swiper_child = new Swiper('.swiper-container-child', {
+                    slidesPerView: 2,
+                    paginationClickable: true,
+                    spaceBetween: 30,
+                    nextButton: '.right_icon_child',
+                    prevButton: '.left_icon_child',
+                    onSlideChangeEnd: function(swiper_child){
+                        if(swiper_child.isBeginning){
+                            swiper_child.prevButton.removeClass('prev_active');
+                        }else{
+                            swiper_child.prevButton.addClass('prev_active');
+                        }
+                        if(swiper_child.isEnd){
+                            swiper_child.nextButton.addClass('next_active');
+                            $('#swiperId_child').css('transition-duration','0ms')
+                            $('#swiperId_child').addClass('swiperId_child')
+                            var X = $('#swiperId_child').css('transform').replace(/[^0-9\-,]/g,'').split(',')[4]-40
+                            $('#swiperId_child').css('transform','translate3d('+X+'px,0px,0px)')
+                            setTimeout(function(){
+                                $('#swiperId_child').removeClass('swiperId_child')
+                            },150);
+                        }else{
+                            swiper_child.nextButton.removeClass('next_active');
+                        }
+                    }
+                });
             }
         })
     })

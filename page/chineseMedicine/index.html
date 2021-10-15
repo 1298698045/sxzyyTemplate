@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -50,6 +50,17 @@
                 </div>
             </div>
         </div>
+        <div class="mobileDescWrap">
+            {ms:arclist artid='1407272821952983041'}
+            <p class="title">${field.title}</p>
+            <p class="desc">${field.descrip}</p>
+            <div class="preview">
+                <i class="icon top_icon"></i>
+                <p class="text" @click="goto('{ms:global.url/}${field.link}')">查看详细</p>
+                <i class="icon bottom_icon"></i>
+            </div>
+            {/ms:arclist}
+        </div>
         <div class="center">
             <div class="row_title">
                 <div class="imgs">
@@ -88,6 +99,9 @@
                     </div>
                     {/ms:arclist}
                 </div>
+            </div>
+            <div class="loadMore" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                加载更多&nbsp;&nbsp;+
             </div>
             {/ms:channel}
             <div class="row_title">
@@ -142,6 +156,9 @@
                     {/ms:arclist}
                 </div>
             </div>
+            <div class="loadMore" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                加载更多&nbsp;&nbsp;+
+            </div>
             {/ms:channel}
             <div class="row_title">
                 <div class="imgs">
@@ -194,6 +211,9 @@
                     </#if>
                     {/ms:arclist}
                 </div>
+            </div>
+            <div class="loadMore" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                加载更多&nbsp;&nbsp;+
             </div>
             {/ms:channel}
         </div>
@@ -306,6 +326,14 @@
         function modalSwiperFun(idx){
             mySwiper1.init();
             mySwiper1.slideTo(idx, 0, false);
+        }
+        let widthScreen = $(window).width();
+        let heightScreen = $(window).height();
+        if(widthScreen<=750){
+            $('.modal_modal .popupWrap').css({
+                'marginLeft': -((widthScreen*0.9) / 2) + 'px',
+                'marginTop': -(heightScreen / 2 / 2) + 'px'
+            })
         }
         $('#featuresId .box').click(function(){
             let idx = $(this).index();

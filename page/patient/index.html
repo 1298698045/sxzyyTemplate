@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -63,6 +63,17 @@
             padding: 0 21px;
             font-size: 14px;
         }
+        .wrap .center .container .tab_wrap .icon{
+            display: none;
+        }
+        @media screen  and (max-width:750px){
+            .wrap .center .container .tab_wrap .swiper-container .swiper-wrapper{
+                justify-content: normal;
+            }
+            .wrap .center .container .tab_wrap .icon{
+                display: block;
+            }
+        }
     </style>
         
 </head>
@@ -85,6 +96,8 @@
                     </div>
                 </div>
                 <div class="tab_wrap">
+                    <div class="left_icon icon">
+                    </div>
                     <div class="swiper-container swiper-no-swiping">
                         <div class="swiper-wrapper" id="swiperId">
                             {ms:channel type='son'}
@@ -95,6 +108,8 @@
                             </div>
                             {/ms:channel}
                         </div>
+                    </div>
+                    <div class="right_icon icon">
                     </div>
                 </div>
                 <!-- 就医须知 -->

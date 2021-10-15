@@ -9,26 +9,42 @@
   .wrap .container .content .NoticeBody .left_wrap{
     width: 100%!important;
     height: 370px!important;
-}
-.wrap .container .content .NoticeBody .right_wrap{
+  }
+  .wrap .container .content .NoticeBody .right_wrap{
+      width: 100%!important;
+      margin-top: 20px;
+  }
+  .wrap .container .content .NoticeBody .left_wrap .l_text{
+      width: 90%!important;
+      height: 90%!important;
+  }
+  .wrap .container .content .NoticeBody .right_wrap .article{
+      width: 96%!important;
+  }
+  .d-visible{
+      width: 100%!important;
+  }
+  .wrap .container .content .NoticeBody .right_wrap .descWrap{
+      width: 100%!important;
+  }
+  .wrap .container .content .NoticeBody .right_wrap .descWrap img{
     width: 100%!important;
-}
-.wrap .container .content .NoticeBody .left_wrap .l_text{
-    width: 90%!important;
-    height: 90%!important;
-}
-.wrap .container .content .NoticeBody .right_wrap .article{
-    width: 96%!important;
-}
-.d-visible{
-    width: 100%!important;
-}
-.wrap .container .content .NoticeBody .right_wrap .descWrap{
-    width: auto!important;
-}
-.wrap .container .content .NoticeBody .left_wrap .l_text .row_back{
-    width: 95%!important;
-}
+  }
+  .wrap .container .content .NoticeBody .left_wrap .l_text .row_back{
+      width: 95%!important;
+  }
+  .wrap .container .content .NoticeBody .right_wrap .title span{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .wrap .container .content .NoticeBody .right_wrap .title .left{
+    min-width: 12px;
+  }
+  .wrap .container .content .NoticeBody .right_wrap .head{
+    margin: 35px 20px 0 20px!important;
+  }
 }
 .wrap .container .content .NoticeBody {
   display: flex;

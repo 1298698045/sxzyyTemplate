@@ -1,3 +1,22 @@
+@media screen and (max-width:750px) {
+  .wrap .center .container .tabs{
+    margin: 0 10px!important;
+  }
+  .wrap .center .container .tabs .tab.text{
+    width: 285px!important;
+    height: 31px!important;
+    line-height: 31px!important;
+  }
+  .wrap .center .container .tabs .tab{
+    margin-right: 10px!important;
+  }
+  .wrap .center .container .tabs .tab:last-child{
+    margin-right: 0;
+  }
+  .wrap .center .container .content .NoticeBody{
+    margin-top: 20px!important;
+  }
+}
 .wrap {
   width: 100%;
   background: url('../images/bg.jpg') no-repeat;

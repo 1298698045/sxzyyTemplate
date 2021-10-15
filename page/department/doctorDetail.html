@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -78,6 +78,51 @@
                         </div>
                     </div>
                 </div>
+                <div class="contentMobile">
+                    <div class="cont_wrap">
+                        <div class="photo">
+                            <img :src="info.portrait" alt="">
+                        </div>
+                        <div class="introduction">
+                            <h3 class="doctorName">{{info.name}}</h3>
+                            <p class="row" v-if="info.departmentName">
+                                <span class="label">
+                                    科室：
+                                </span>
+                                {{info.departmentName}}
+                            </p>
+                            <p class="row" v-if="info.technicalTitle">
+                                <span class="label">
+                                    职称：
+                                </span>
+                                {{info.technicalTitle}}
+                            </p>
+                            <p class="row" v-if="info.position">
+                                <span class="label">
+                                    职务：
+                                </span>
+                                {{info.position}}
+                            </p>
+                            <p class="row" v-if="info.techingPost">
+                                <span class="label">
+                                    教学任职：
+                                </span>
+                                {{info.techingPost}}
+                            </p>
+                            <p class="row" v-if="info.goodAt">
+                                <span class="label">
+                                    擅长：
+                                </span>
+                                {{info.goodAt}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {ms:channel type='self' size=1}
+                <div class="loadMore" @click="handleMoreDoctor">
+                    查看科室更多医生
+                </div>
+                {/ms:channel}
                 <div class="rowBox">
                     <p class="name">专家简介</p>
                     <div class="cont">

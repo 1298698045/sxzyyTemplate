@@ -23,6 +23,10 @@ $(function () {
         $(this).addClass('active');
         $('.right_box .cont').hide();
         $('.right_box .cont').eq($(this).index()).show();
+        let title = $(this).html();
+        $('.right_box .browseMore').removeClass('active');
+        $('.right_box .browseMore').html('浏览更多'+title + '&nbsp &nbsp' + '+')
+        $('.right_box .browseMore').eq($(this).index()).addClass('active');
     },function(){
         $(this).addClass('active');
     })

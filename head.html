@@ -137,7 +137,7 @@
         </div>
         <div class="mobileNav">
             <div class="row">
-                <div class="logo">
+                <div class="logo" @click="gotoHref('{ms:global.url/}/home.html')">
 
                 </div>
                 <div class="more" @click="handleNavOpen">
@@ -151,14 +151,14 @@
                     </div>
                 </div>
             </div>
-            <div class="nav_body_modal" v-if="isNav">
+            <div class="nav_body_modal" :style="{height:height+'px'}" v-if="isNav">
                 <form id="searchDataForm1" action="{ms:global.host/}/mcms/search.do" method="post"> 
                     <div class="bd_search">
                         <input type="text" class="inp" name="content_title" placeholder="请输入你要查询的内容">
                         <span class="search_icon" onclick="document.getElementById('searchDataForm1').submit();"></span>
                     </div>
                 </form>
-                <ul class="navUls">
+                <ul class="navUls" ref="navBody">
                     <li class="menu">
                         <div class="row" @click="gotoHref('{ms:global.url/}/home.html')">
                             首页
@@ -170,7 +170,9 @@
                     <li class="menu">
                         <div class="row">
                             <span @click="gotoHref('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</span>
+                            <#if (field.childsize>0)>
                             <span class="right_icon" @click="handleIsShow('${field.index}')"></span>
+                            </#if>
                         </div>
                         <#if (field.childsize>0)>
                         <div class="showBox">

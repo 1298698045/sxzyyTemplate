@@ -125,7 +125,7 @@
                         </div>
                         <div class="list_text" id="newsOne">
                             {ms:channel type='son' typeid='1400716168132456449'}
-                            <p class="back<#if field.index==1> active</#if>"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</p>
+                            <p class="back<#if field.index==1> active</#if>"  @click="isMobile && goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</p>
                             {/ms:channel}
                         </div>
                     </div>
@@ -195,15 +195,12 @@
                         </#if>
                         {/ms:arclist}
                     </div>
+                    <div class="browseMore<#if field.index==1> active</#if>"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                        浏览更多医院新闻&nbsp;&nbsp;+
+                    </div>
                     {/ms:channel}
                     
                 </div>
-                <!-- 浏览更多 -->
-                {ms:channel type='son' typeid='1400716168132456449'}
-                <div class="browseMore<#if field.index==1> active</#if>"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
-                    浏览更多医院新闻&nbsp;&nbsp;+
-                </div>
-                {/ms:channel}
                 <div class="right_box">
                     <div class="row">
                         <div class="l_name">
@@ -211,7 +208,7 @@
                         </div> 
                         <div class="list_text" id="newsTwo">
                             {ms:channel size=3 typeid='1400723660430274562'}
-                            <p class="back<#if field.index==1> active</#if> ${field.pinyin}"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</p>
+                            <p class="back<#if field.index==1> active</#if> ${field.pinyin}"  @click="isMobile && goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</p>
                             {/ms:channel}
                         </div>
                     </div>
@@ -229,19 +226,9 @@
                         {/ms:arclist}
                         
                     </div>
-                    <#if field.index==1>
-                    <div class="browseMore<#if field.index==1> active</#if> ${field.pinyin}"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                    <div class="browseMore<#if field.index==1> active</#if>"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
                         浏览更多招标公告&nbsp;&nbsp;+
                     </div>
-                    <#elseif field.index==2>
-                    <div class="browseMore<#if field.index==1> active</#if> ${field.pinyin}"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
-                        浏览更多招聘信息&nbsp;&nbsp;+
-                    </div>
-                    <#elseif field.index==3>
-                    <div class="browseMore<#if field.index==1> active</#if> ${field.pinyin}"  @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
-                        浏览更多医讯公告&nbsp;&nbsp;+
-                    </div>
-                    </#if>
                     {/ms:channel}
                     {/ms:channel}
                 </div>
@@ -487,7 +474,9 @@ var xin = true, // true向右偏移,false向左偏移，首次为true，默认�
                 {/ms:channel}
             ],
             num:0,
-            typePath: '<#if field.typeid?has_content>${field.typeid}<#if field.parentids?has_content>,${field.parentids}</#if><#else>0</#if>'
+            typePath: '<#if field.typeid?has_content>${field.typeid}<#if field.parentids?has_content>,${field.parentids}</#if><#else>0</#if>',
+            screenWidth: '',
+            isMobile: true
         },
         mixins: [mixin],
         methods: {
@@ -504,6 +493,12 @@ var xin = true, // true向右偏移,false向左偏移，首次为true，默认�
             $('.departList .uls .lis').eq(0).addClass('active');
             if (this.departments.length > 0 && this.departments[0].children.length > 0) {
                 this.setDepartment(this.departments[0].children[0])
+            }
+        },
+        mounted(){
+            this.screenWidth = document.documentElement.clientWidth;
+            if(this.screenWidth<=750){
+                this.isMobile = false
             }
         }
     })
@@ -542,6 +537,10 @@ var xin = true, // true向右偏移,false向左偏移，首次为true，默认�
         $(this).addClass('active');
         $('.News .left_box .cont').hide();
         $('.News .left_box .cont').eq($(this).index()).show()
+        let title = $(this).html();
+        $('.News .left_box .browseMore').removeClass('active');
+        $('.News .left_box .browseMore').html('浏览更多'+title + '&nbsp &nbsp' + '+')
+        $('.News .left_box .browseMore').eq($(this).index()).addClass('active');
         let idx = $(this).index();
         mySwiper_child[idx].init();
         mySwiper_child[idx].stopAutoplay();

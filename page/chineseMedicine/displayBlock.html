@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>中医特色</title>
     <link rel="shortcut icon" href="{ms:global.host/}/{ms:global.style/}/images/favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
@@ -130,9 +130,14 @@
                     <div class="fake_item"></div>
                 </div>
             </div>
-            <div v-if="page.contentCount>9">
+            <div class="pagePC" v-if="page.contentCount>9">
                 <el-pagination background @current-change="list" :page-size="page.pageSize"
                     :current-page.sync="page.pageNo" layout="prev, pager, next, jumper" :total="page.contentCount">
+                </el-pagination>
+            </div>
+            <div class="pageMobile" v-if="page.contentCount>9">
+                <el-pagination background @current-change="list" :page-size="page.pageSize"
+                    :current-page.sync="page.pageNo" layout="prev, pager, next" :total="page.contentCount">
                 </el-pagination>
             </div>
         </div>
@@ -248,7 +253,6 @@
             this.list()
         }
     })
-
     window.onload = function(){
         setTimeout(()=>{
             var mySwiper1 = new Swiper ('.swiper-container_modal', {
@@ -271,6 +275,14 @@
                     // let idx = $(this).index();
                     $('.modal_modal').show();
                     modalSwiperFun(i);
+                })
+            }
+            let widthScreen = $(window).width();
+            let heightScreen = $(window).height();
+            if(widthScreen<=750){
+                $('.modal_modal .popupWrap').css({
+                    'marginLeft': -((widthScreen*0.9) / 2) + 'px',
+                    'marginTop': -(heightScreen / 2 / 2) + 'px'
                 })
             }
             $('#featuresId .box').click(function(){
