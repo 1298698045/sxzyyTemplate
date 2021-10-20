@@ -52,8 +52,8 @@ var mixin = {
             $('.menu').eq(idx).find('.row .right_icon').toggleClass('active');
             $('.showBox').not($('.menu').eq(idx).find('.showBox')).hide();
             $('.row .right_icon').not($('.menu').eq(idx).find('.row .right_icon')).removeClass('active');
-            var top = $('.wrap .mobileHeader .mobileNav .nav_body_modal').scrollTop()+100
-            $('.wrap .mobileHeader .mobileNav .nav_body_modal').scrollTop(top)
+            // var top = $('.wrap .mobileHeader .mobileNav .nav_body_modal').scrollTop()+100
+            // $('.wrap .mobileHeader .mobileNav .nav_body_modal').scrollTop(top)
         },
         handleIsScroll() {
             let scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -63,7 +63,7 @@ var mixin = {
             let top = document.documentElement.scrollTop || document.body.scrollTop;
             // 实现滚动效果 
             const timeTop = setInterval(() => {
-                document.body.scrollTop = document.documentElement.scrollTop = top -= 50;
+                document.body.scrollTop = document.documentElement.scrollTop = top -= document.documentElement.offsetHeight / 100;
                 if (top <= 0) {
                     this.isTop = true;
                     clearInterval(timeTop);

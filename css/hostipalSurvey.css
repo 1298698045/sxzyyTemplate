@@ -1,3 +1,222 @@
+@media screen and (max-width:750px) {
+  .wrap .container .hospitalWrap .Breadcrumb{
+    display: none;
+  }
+  .wrap .container .hospitalWrap{
+    width: 100%!important;
+    padding-top: 1px;
+  }
+  .wrap .container .hospitalWrap .tab_wrap{
+    margin: 0 10px;
+  }
+  .wrap .container .hospitalWrap .tab_wrap .swiper-container{
+    height: auto!important;
+  }
+  .wrap .container .hospitalWrap .tab_wrap .swiper-container #swiperId .swiper-slide{
+    width: 130px!important;
+    height: 60px!important;
+    line-height: 60px!important;
+    background-size: 100% 100% !important;
+  }
+  .wrap .container .content .bg_block .jd_wrap{
+    width: 100% !important;
+    padding: 10px;
+    box-sizing: border-box;
+    display: block !important;
+  }
+  .wrap .container .content .bg_block .jd_wrap .lbox{
+    width: 100%!important;
+    margin-right: 0!important;
+  }
+  .wrap .container .content .bg_block .jd_wrap .lbox .rowTitle::before{
+    min-width: 41px;
+  }
+  .wrap .container .content .bg_block .jd_wrap .lbox .rowTitle::after{
+    min-width: 41px;
+  }
+  .wrap .container .content .bg_block .jd_wrap .lbox .rowTitle{
+    font-size: 24px!important;
+  }
+  .wrap .container .content.content_wrap .bg_block{
+    height: auto!important;
+  }
+  .wrap .container .content .bg_block .jd_wrap .rbox{
+    background-size: 100% 100% !important;
+  }
+  .wrap .container .content .marginAuto{
+    width: 95%!important;
+  }
+  .wrap .container .content_wrap .mingjia{
+    width: auto !important;
+    height: 238px !important;
+    background: url('../images/mj_bjTwo.jpg') no-repeat!important;
+    background-size: cover !important;
+    background-position: center!important;
+  }
+  .wrap .container .content_wrap .mingjia .mj_warp .row{
+    width: auto!important;
+    position: sticky !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .wrap .container .content_wrap .mingjia .mj_warp .row .top_icon{
+    width: 41px!important;
+    height: 22px!important;
+    background: url('../images/c_l.png') no-repeat!important;
+  }
+  .wrap .container .content_wrap .mingjia .mj_warp .row .bottom_icon{
+    width: 41px!important;
+    height: 22px!important;
+    background: url('../images/c_r.png') no-repeat!important;
+  }
+  .wrap .container .content_wrap .mingjia .mj_warp .row .text{
+    font-size: 24px!important;
+    padding: 10px 0 !important;
+  }
+  .wrap .container .content_wrap .bg_block_two{
+    height: auto !important;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  .wrap .container .content_wrap .bg_block_two .z_cont_wrap{
+    overflow: hidden;
+    display: block !important;
+    padding-top: 10px!important;
+  }
+  .wrap .container .content_wrap .bg_block_two .z_cont_wrap .lBox{
+    float: right;
+    padding-bottom: 10px;
+  }
+  .wrap .container .content_wrap .banner_wrap{
+    width: 100% !important;
+    height: 100% !important;
+    background-size: cover !important;
+  }
+  .wrap .container .content_wrap .bg_block_two .z_cont_wrap .rBox{
+    margin-left: 0!important;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .wrap .container .content_wrap .bg_block_two .z_cont_wrap .rBox .rowTitle{
+    width: 100%!important;
+    font-size: 24px!important;
+    padding-bottom: 10px!important;
+  }
+  /* 医院介绍底部轮播 */
+  .wrap .container .content_wrap .banner_wrap .honor .desc{
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  .wrap .container .content_wrap .banner_wrap .honor .rowTitle{
+    font-size: 24px!important;
+    padding-top: 20px!important;
+    padding-bottom: 20px!important;
+  }
+  .wrap .container .content_wrap .bg_block_two .z_cont_wrap .lBox .l_img{
+    width: 150px!important;
+    height: 200px!important;
+    margin-right: 10px;
+    background-size: cover!important;
+  }
+  .wrap .container .content_wrap .bg_block_two .z_cont_wrap .lBox .r_img{
+    width: 195px !important;
+    height: 200px !important;
+    margin-right: 10px!important;
+    background-size: cover !important;
+  }
+  .wrap .container .content_wrap .banner_wrap .honor .banner{
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+  .wrap .container .content_wrap .banner_wrap .honor .banner .swiper-container .swiper-wrapper .swiper-slide{
+    width: 100%!important;
+    margin-right: 0 !important;
+  }
+  /* 历史沿革 */
+  .wrap .container .content .historyWrap .leftWrap{
+    display: none;
+  }
+  .wrap .container .content .historyWrap .rightWrap{
+    margin-left: 0!important;
+    margin-bottom: 10px;
+    overflow-y: auto!important;
+  }
+  .wrap .container .content .historyWrap .rightWrap .stepBox{
+    padding-left: 20px!important;
+  }
+  .wrap .container .content .historyWrap .rightWrap .stepBox .desc .tag_icon{
+    left: -26px!important;
+  }
+  .wrap .container .content .historyWrap .rightWrap .stepBox .title{
+    padding-bottom: 0 !important;
+  }
+  .wrap .container .content .historyWrap .rightWrap .stepBox .title.top{
+    padding-top: 28px !important;
+  }
+  .wrap .bottomBack{
+    margin-top: 0!important;
+  }
+  /* 院容院貌 */
+  .wrap .container .features .dynamic{
+    margin: 20px 10px !important;
+  }
+  .wrap .container .features .dynamic .box{
+    width: 48%!important;
+    height: 156px!important;
+    background-size: 100% 100% !important;
+    margin-bottom: 20px!important;
+  }
+  .wrap .container .features .dynamic .box .box_child .img{
+    height: 100px!important;
+  }
+  .wrap .container .features .dynamic .box .box_child .textWrap .text{
+    width: 90%!important;
+    margin: 10px!important;
+  }
+  .modal_modal .popupWrap{
+    width: 90%!important;
+  }
+  .modal_modal .popupWrap .block .swiper-container_modal{
+    width: 100%!important;
+  }
+  .modal_modal .popupWrap .block .swiper-container_modal .swiper-wrapper .swiper-slide .imgBox{
+    width: 100%!important;
+    height: 200px!important;
+    background-size: 100% 100% !important;
+  }
+  .modal_modal .popupWrap .block .swiper-container_modal .swiper-wrapper .swiper-slide{
+    width: 100% !important;
+  }
+  .modal_modal .popupWrap .block .row{
+    width: 100% !important;
+  }
+  .wrap .container .content .NoticeBody{
+    display: block!important;
+    margin-bottom: 20px!important;
+  }
+  .wrap .container .content .traffic{
+    display: block !important;
+    margin: 0 auto 20px !important;
+  }
+  .traffic .left_box{
+    width: 100%!important;
+  }
+  .traffic .left_box .imgs{
+    width: 100% !important;
+  }
+  .traffic .right_box{
+    width: 100% !important;
+    padding: 1px 20px 0 20px!important;
+  }
+  .traffic .right_box .tabs .tab{
+    background-size: 100% 100% !important;
+  }
+  .wrap .container .content_wrap .banner_wrap .honor .swiper-container .swiper-wrapper .swiper-slide{
+    height: 175px!important;
+  }
+}
 .wrap{
   width: 100%;
   background: url('../images/bg.jpg') no-repeat;
@@ -350,7 +569,7 @@ line-height: 2;
 .wrap .container .content_wrap .banner_wrap .honor .banner .swiper-container .swiper-wrapper{
   box-sizing: border-box;
 }
-.wrap .container .content_wrap .banner_wrap .honor .banner .swiper-container .swiper-wrapper .swiper-slide{
+.wrap .container .content_wrap .banner_wrap .honor  .swiper-container .swiper-wrapper .swiper-slide{
   width: 400px!important;
   height: 242px;
   background: url('../images/honor_box.png') no-repeat;

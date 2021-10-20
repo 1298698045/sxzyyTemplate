@@ -28,7 +28,7 @@
       width: 100%!important;
   }
   .wrap .container .content .NoticeBody .right_wrap .descWrap img{
-    width: 100%!important;
+    max-width: 100%!important;
   }
   .wrap .container .content .NoticeBody .left_wrap .l_text .row_back{
       width: 95%!important;

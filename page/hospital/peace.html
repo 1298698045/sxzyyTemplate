@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -156,6 +156,17 @@
                 </div>
             </div>
         </div>
+        <div class="mobileDescWrap">
+            {ms:arclist artid='1405737841200279553'}
+            <p class="title">${field.typetitle}</p>
+            <p class="desc">${field.descrip}</p>
+            <div class="preview">
+                <i class="icon top_icon"></i>
+                <p class="text" @click="goto('{ms:global.url/}${field.link}')">查看详细</p>
+                <i class="icon bottom_icon"></i>
+            </div>
+            {/ms:arclist}
+        </div>
         <div class="center">
             <div class="row_title">
                 <div class="imgs">
@@ -191,9 +202,7 @@
                     {/ms:arclist}
                     <div class="fake_item"></div>
                 </div>
-                <#if (field.childsize>3)>
                 <div class="swiper-pagination"></div>
-                </#if>
             </div>
             {/ms:channel}
             <div class="row_title">
@@ -248,6 +257,11 @@
                 <div class="fake_item"></div>
                 <div class="fake_item"></div>
             </div>
+            {ms:channel type='self'  typeid='1400725472675786754'}
+            <div class="loadMore" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                加载更多&nbsp;&nbsp;+
+            </div>
+            {/ms:channel}
         </div>
         <#include "foot.html" />
     </div>
@@ -319,6 +333,19 @@
         }
     })
     $(function(){
+        let screenWidth = $(window).width();
+        let slidesPerView = 3;
+        if(screenWidth<=750){
+            slidesPerView = 2;
+        }
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: slidesPerView,
+            paginationClickable:true,
+            pagination: '.swiper-pagination',
+        });
+        if($('.swiper-slide').length<=slidesPerView){
+            $('.swiper-pagination').hide();
+        }
         let photoUrl = $('#backPhoto').attr('virtualPath');
         photoUrl = photoUrl.trim();
         $("#maxImage").css({"background":'url("'+photoUrl+'") no-repeat ',"background-position":"27% 60px"}); 

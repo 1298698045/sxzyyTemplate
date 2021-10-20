@@ -133,13 +133,23 @@
                             </#if>
                         </div>
                     </div>
-                    <div id="pages">
+                    <div class="pagePC" id="pages">
                         <el-pagination
                             background
                             @current-change="handleCurrentChange"
                             :page-size="pageSize"
                             :current-page.sync="pageCur"
                             layout="prev, pager, next, jumper"
+                            :total="contentCount">
+                        </el-pagination>
+                    </div>
+                    <div class="pageMobile" id="pages">
+                        <el-pagination
+                            background
+                            @current-change="handleCurrentChange"
+                            :page-size="pageSize"
+                            :current-page.sync="pageCur"
+                            layout="prev, pager, next"
                             :total="contentCount">
                         </el-pagination>
                     </div>

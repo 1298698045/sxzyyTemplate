@@ -172,6 +172,19 @@
     margin: 0 auto;
     display: block!important;
   }
+  .wrap .center .headPhoto .fake_item{
+    flex: 0 0 113px!important;
+  }
+  .wrap .center .swiper-container .dynamic{
+    height: 200px!important;
+  }
+  .wrap .center .swiper-container .swiper-pagination{
+    bottom: 0!important;
+  }
+}
+.swiper-pagination{
+  margin: 10px 0;
+  text-align: center;
 }
 .wrap .loadMore{
   display: none;

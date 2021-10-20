@@ -58,9 +58,13 @@
             background: url('{ms:global.host/}/{ms:global.style/}/images/tab_child_active.png') no-repeat;
             background-size: 100% 100%;
         }
+        .wrap .center .container .tabs.tabsMobile{
+            display: none;
+        }
         @media screen and (max-width: 750px) {
             .wrap .center{
                 width: 100%!important;
+                padding-bottom: 0 !important;
             }
             .wrap .center .container{
                 padding-top: 1px;
@@ -70,18 +74,25 @@
                 justify-content: space-between;
                 box-sizing: border-box;
             }
+            .wrap .center .container .tabs.tabsPC{
+                display: none!important;
+            }
+            .wrap .center .container .tabs.tabsMobile{
+                display: block!important;
+                overflow: hidden;
+            }
             .wrap .center .container .tabs .tab{
                 width: 24%!important;
                 font-size: 14px;
                 margin-right: 0!important;
             }
             .wrap .center .container .tabs .tab.text{
-                height: 31px!important;
-                line-height: 31px!important;
+                width: 100% !important;
+                height: 36px!important;
+                line-height: 36px!important;
             }
             .wrap .center .container .content .NoticeBody{
                 display: block!important;
-                padding: 0 10px;
                 box-sizing: border-box;
             }
             .wrap .container .content .NoticeBody .left_wrap{
@@ -127,7 +138,7 @@
                         <img src="{ms:global.host/}/{ms:global.style/}/images/02.png" alt="">
                     </div>
                 </div>
-                <div class="tabs">
+                <div class="tabs tabsPC">
                     {ms:channel type='son'}
                     <div class="tab text tabs-item"
                      :class="{active : $route.path == '${field.typepath}'}"
@@ -136,7 +147,19 @@
                     </div>
                     {/ms:channel}
                 </div>
-
+                <div class="swiper-container-child tabs tabsMobile">
+                    <div class="swiper-wrapper" id="swiperId_child">
+                        {ms:channel type='son'}
+                        <div class="swiper-slide">
+                            <div class="tab text tabs-item"
+                            :class="{active : $route.path == '${field.typepath}'}"
+                            title="${field.typetitle}" @click="push('${field.typepath}')">
+                                    ${field.typetitle}
+                            </div>
+                        </div>
+                        {/ms:channel}
+                    </div>
+                </div>
                 <router-view></router-view>
 
                 
@@ -223,6 +246,34 @@ var router = new VueRouter({routes:[
             {/ms:channel}
         }
     })
+</script>
+<script>
+    var swiper_child = new Swiper('.swiper-container-child', {
+        slidesPerView: 2,
+        paginationClickable: true,
+        spaceBetween: 30,
+        nextButton: '.right_icon_child',
+        prevButton: '.left_icon_child',
+        onSlideChangeEnd: function(swiper_child){
+            if(swiper_child.isBeginning){
+                swiper_child.prevButton.removeClass('prev_active');
+            }else{
+                swiper_child.prevButton.addClass('prev_active');
+            }
+            if(swiper_child.isEnd){
+                swiper_child.nextButton.addClass('next_active');
+                $('#swiperId_child').css('transition-duration','0ms')
+                $('#swiperId_child').addClass('swiperId_child')
+                // var X = $('#swiperId_child').css('transform').replace(/[^0-9\-,]/g,'').split(',')[4]-40
+                // $('#swiperId_child').css('transform','translate3d('+X+'px,0px,0px)')
+                setTimeout(function(){
+                    $('#swiperId_child').removeClass('swiperId_child')
+                },150);
+            }else{
+                swiper_child.nextButton.removeClass('next_active');
+            }
+        }
+    });     
 </script>
 <script src="{ms:global.host/}/{ms:global.style/}/js/scroll.js" defer></script>
 </html>

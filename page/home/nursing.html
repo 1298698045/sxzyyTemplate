@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1300px">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>{ms:global.name/}</title>
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
@@ -54,6 +54,17 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="mobileDescWrap">
+            {ms:arclist artid='1406929080855670785'}
+            <p class="title">${field.typetitle}</p>
+            <p class="desc">${field.descrip}</p>
+            <div class="preview">
+                <i class="icon top_icon"></i>
+                <p class="text" @click="goto('{ms:global.url/}${field.link}')">查看详细</p>
+                <i class="icon bottom_icon"></i>
+            </div>
+            {/ms:arclist}
         </div>
         <div class="center">
             <div class="row_title">
@@ -206,14 +217,14 @@
         }
     })
     $(function(){
-        var swiperTwo = new Swiper('.swiper-container', {
-            pagination: '.swiper-pagination',
-            slidesPerView: 3,
-            paginationClickable: true
-        });
-        if($('.swiper-slide').length<=3){
-            $('.swiper-pagination').hide();
-        }
+        // var swiperTwo = new Swiper('.swiper-container', {
+        //     pagination: '.swiper-pagination',
+        //     slidesPerView: 3,
+        //     paginationClickable: true
+        // });
+        // if($('.swiper-slide').length<=3){
+        //     $('.swiper-pagination').hide();
+        // }
         function tempFun(){
             let template = '';
             for(let i = 0; i < 6 ; i++){
@@ -253,11 +264,19 @@
             return template;
         }
         // $('.headPhoto').append(tempFun());
-        var swiperTwo = new Swiper('.swiper-container', {
+         let screenWidth = $(window).width();
+        let slidesPerView = 3;
+        if(screenWidth<=750){
+            slidesPerView = 2;
+        }
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: slidesPerView,
+            paginationClickable:true,
             pagination: '.swiper-pagination',
-            slidesPerView: 3,
-            paginationClickable: true
         });
+        if($('.swiper-slide').length<=slidesPerView){
+            $('.wrap .center .swiper-container .swiper-pagination').hide();
+        }
         $('#featuresId .box .add_icon').click(function(){
             $('.modal_modal').show();
         })

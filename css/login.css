@@ -252,6 +252,9 @@ a{
     color: #555555;
     line-height: 1.5;
 }
+.center .container .content .left a:hover {
+    color: #815b3f;
+}
 .center .container .content .right {
     position: relative;
     z-index: 99999;

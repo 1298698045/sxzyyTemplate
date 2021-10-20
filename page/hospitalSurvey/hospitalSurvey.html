@@ -224,9 +224,9 @@
                                     <div class="rowTitle">
                                         ${field.title}
                                     </div>
-                                    <p class="desc">
+                                    <div class="desc">
                                         ${field.content}
-                                    </p>
+                                    </div>
                                     {/ms:arclist}
                                     <div class="banner">
                                         <div class="swiper-container _swiper-container_new">
@@ -366,6 +366,14 @@
                                     })
                                     console.log('lines:', that.lines)
                                     setTimeout(()=>{
+                                        let widthScreen = $(window).width();
+                                        let heightScreen = $(window).height();
+                                        if(widthScreen<=750){
+                                            $('.modal_modal .popupWrap').css({
+                                                'marginLeft': -((widthScreen*0.9) / 2) + 'px',
+                                                'marginTop': -(heightScreen / 2 / 2) + 'px'
+                                            })
+                                        }
                                         $('#featuresId .box').click(function(){
                                             let idx = $(this).index();
                                             $('.modal_modal').show();
@@ -666,9 +674,13 @@
             }
         },
         mounted(){
+            let slidesPerView = 5;
+            if(document.documentElement.clientWidth<=750){
+                slidesPerView = 2
+            }
             var swiper = new Swiper('.swiper-container', {
                 pagination: '.swiper-pagination',
-                slidesPerView: 5,
+                slidesPerView: slidesPerView,
                 paginationClickable: true,
                 spaceBetween: 30,
                 nextButton: '.right_icon',
@@ -715,14 +727,23 @@
                     }
                 }
             });
+            var slides = 3
+            if(document.documentElement.clientWidth<=750){
+                slides = 1
+                let a = $('.z_cont_wrap .lBox');
+                let b = $('.z_cont_wrap .rBox');
+                b.insertBefore(a)
+            }
             this.$nextTick(() => {
                 new Swiper('._swiper-container_new', {
+                    slidesPerView: slides,
                     pagination: '.swiper-pagination1',
-                    slidesPerView: 3,
-                    paginationClickable: true
+                    paginationClickable: true,
+                    observer:true,
+                    observeParents:true
                 });
                 let len = $('._swiper-container_new .swiper-slide').length;
-                if(len<=3){
+                if(len<=slides){
                     $('._swiper-container_new .swiper-pagination1').hide();
                 }else {
                     $('._swiper-container_new .swiper-pagination1').show();
@@ -735,7 +756,11 @@
             // });
             let title = $('.swiper-slide.active').attr('title');
             if(title=='交通路线'){
-                swiper.slideTo(2, 1000, false);
+                if(document.documentElement.clientWidth<=750){
+                    swiper.slideTo(4, 1000, false);
+                }else {
+                    swiper.slideTo(2, 1000, false);
+                }
                 $('#traffic .tabs .tab').click(function(){
                     $('#traffic .tabs .tab').removeClass('active');
                     $(this).addClass('active');
@@ -772,9 +797,13 @@
             });
         }
     })
+    var slidesPerView = 5;
+    if($(window).width<=750){
+        slidesPerView = 2;
+    }
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
-        slidesPerView: 5,
+        slidesPerView: slidesPerView,
         paginationClickable: true,
         spaceBetween: 30,
         nextButton: '.right_icon',
@@ -844,14 +873,23 @@
         // swiper[0].init();
         let idx = $(this).index();
         if(($(this).attr('title')=='医院介绍')){
+            var slidesTwo = 3
+            if($(window).width()<=750){
+                slidesTwo = 1
+                let a = $('.z_cont_wrap .lBox');
+                let b = $('.z_cont_wrap .rBox');
+                b.insertBefore(a)
+            }
             setTimeout(()=>{
                 var swiperTwo = new Swiper('._swiper-container_new', {
                     pagination: '.swiper-pagination1',
-                    slidesPerView: 3,
-                    paginationClickable: true
+                    slidesPerView: slidesTwo,
+                    paginationClickable: true,
+                    observer:true,
+                    observeParents:true
                 });
                 let len = $('._swiper-container_new .swiper-slide').length;
-                if(len<=3){
+                if(len<=swiperTwo){
                     $('._swiper-container_new .swiper-pagination1').hide();
                 }else {
                     $('._swiper-container_new .swiper-pagination1').show();
@@ -1038,10 +1076,16 @@
                 $('.rightWrap .stepBox').eq(idx).children('.title').removeClass('top');
             })
         }else if($(this).attr('title')=='医院介绍'){
+            var slidesThree = 3;
+            if($(window).width<=750){
+                slidesThree = 1;
+            }
             var swiperTwo = new Swiper('._swiper-container_new', {
                 pagination: '.swiper-pagination',
-                slidesPerView: 3,
-                paginationClickable: true
+                slidesPerView: slidesThree,
+                paginationClickable: true,
+                observer:true,
+                observeParents:true
             });
         }
     })
@@ -1100,7 +1144,6 @@
         
     }    
 </script>
-// <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=dpYUGNcGjk0Kx0p3o8zR7z3QI53HuGEc&s=1"></script>
 <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=dpYUGNcGjk0Kx0p3o8zR7z3QI53HuGEc&s=1"></script>
 <script type="text/javascript" src="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
 

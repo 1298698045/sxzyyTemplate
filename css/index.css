@@ -97,6 +97,8 @@
   /* 科室导航 */
   .wrap .center .department .cont{
     display: block!important;
+    padding: 28px 10px!important;
+    box-sizing: border-box;
   }
   .wrap .center .department .cont .img_wrap,.wrap .center .department .cont .img_wrap .mantle{
     width: 100%!important;
@@ -105,16 +107,17 @@
     width: 100%!important;
   }
   .wrap .center .department .cont .departList .d_right .solid{
-    width: 45px!important;
+    width: 58px!important;
   }
   .wrap .center .department .cont .departList .uls{
-    justify-content: space-around!important;
+    /* justify-content: space-around!important; */
   }
   .wrap .center .department .cont .departList .uls .lis{
-    margin: 10px!important;
+    /* margin: 10px!important; */
+    margin: 10px 0 10px 0!important;
   }
   .wrap .center .department .cont .departList .tabs{
-    padding: 0 10px;
+    /* padding: 0 10px; */
     margin-top: 20px;
   }
   .wrap .center .department .cont .departList .tabs .tab{

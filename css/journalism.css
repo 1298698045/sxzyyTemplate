@@ -40,7 +40,11 @@
     width: 10px!important;
     background: initial!important;
     line-height: 58px!important;
+    margin: 0!important;
     /* font-size: 18px!important; */
+  }
+  .wrap .center .container .content_wrap .newPage .el-pagination .more{
+    width: 10px !important;
   }
   .wrap .center .container .content_wrap .newPage.pagePC{
     display: none!important;

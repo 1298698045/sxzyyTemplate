@@ -203,9 +203,7 @@
                     {/ms:arclist}
                     <div class="fake_item"></div>
                 </div>
-                <#if (field.childsize>3)>
                 <div class="swiper-pagination"></div>
-                </#if>
             </div>
             {/ms:channel}
             <div class="row_title">
@@ -337,12 +335,17 @@
     })
 
     $(function(){
-        var swiperTwo = new Swiper('.swiper-container', {
+        let screenWidth = $(window).width();
+        let slidesPerView = 3;
+        if(screenWidth<=750){
+            slidesPerView = 2;
+        }
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: slidesPerView,
+            paginationClickable:true,
             pagination: '.swiper-pagination',
-            slidesPerView: 3,
-            paginationClickable: true
         });
-        if($('.swiper-slide').length<=3){
+        if($('.swiper-slide').length<=slidesPerView){
             $('.swiper-pagination').hide();
         }
         let photoUrl = $('#backPhoto').attr('virtualPath');

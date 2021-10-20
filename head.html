@@ -128,10 +128,10 @@
     </div>
     <div class="mobileHeader">
         <div class="head_top">
-            <span class="btn active">
-                患者版
+            <span class="btn active" @click="gotoHref('{ms:global.url/}/home.html')">
+                大众版
             </span>
-            <span class="btn">
+            <span class="btn" @click="gotoHref('{ms:global.url/}/employee.html')">
                 员工版
             </span>
         </div>
