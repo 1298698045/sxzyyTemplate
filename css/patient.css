@@ -5,6 +5,14 @@
   .wrap .center .container{
     padding-top: 1px;
   }
+  .wrap .center .container .row_title .name{
+    font-size: 26px!important;
+    padding: 0 15px !important;
+  }
+  .wrap .center .container .row_title .imgs{
+    width: 18px !important;
+    height: 30px !important;
+  }
   /* 出诊动态 */
   .wrap .center .container .content .table .tbody .dataRow td{
     min-width: 100px!important;
@@ -28,6 +36,7 @@
     line-height: 60px!important;
     white-space: nowrap;
     background-size: 100% 100%!important;
+    font-size: 18px!important;
   }
   .wrap .center .container .tab_wrap .swiper-container #swiperId .swiper-slide.active{
     background-size: 100% 100%!important;
@@ -37,6 +46,7 @@
   }
   .wrap .center .container .content .formSearch{
     display: block!important;
+    margin: 20px 0 0 0 !important;
   }
   .wrap .center .container .content .formSearch span{
     display: none;
@@ -49,6 +59,13 @@
   }
   .wrap .center .container .content .formSearch .filed .inp{
     width: 100%!important;
+    font-size: 16px!important;
+  }
+  .wrap .center .container .content .formSearch .filed .select input{
+    font-size: 16px !important;
+  }
+  .wrap .center .container .content .formSearch .filed .select input::-webkit-input-placeholder{
+    font-size: 16px!important;
   }
   .wrap .center .container .content .formSearch .fieldMobile{
     display: flex;

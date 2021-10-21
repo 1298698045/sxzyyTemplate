@@ -21,10 +21,10 @@
   }
   .wrap .center .container .content_wrap .content{
     display: block!important;
-    padding: 38px 10px!important;
+    padding: 38px 10px 0 10px!important;
   }
   .wrap .center .container .content_wrap .content .lCont{
-    width: 90%!important;
+    width: 100%!important;
     margin:0 auto!important;
   }
   .wrap .center .container .content_wrap .content .lCont .box .desc_wrap .title{
@@ -41,7 +41,11 @@
     background: initial!important;
     line-height: 58px!important;
     margin: 0!important;
-    /* font-size: 18px!important; */
+    font-size: 16px !important;
+  }
+  .wrap .center .container .content_wrap .newPage .el-pagination .el-pager .number.active{
+    color: #815b3f !important;
+    font-size: 18px !important;
   }
   .wrap .center .container .content_wrap .newPage .el-pagination .more{
     width: 10px !important;
@@ -52,21 +56,31 @@
   .wrap .center .container .content_wrap .newPage.pageMobile{
     display: block!important;
   }
+  .wrap .center .container .row_title .name{
+    font-size: 26px!important;
+    padding: 0 15px!important;
+  }
+  .wrap .center .container .row_title .imgs{
+    width: 18px!important;
+    height: 30px!important;
+  }
   /* 媒体报道 */
   .wrap .container .memorabilia .dynamic{
     margin: 0!important;
   }
   .wrap .container .memorabilia .dynamic .box{
-    width: 48%!important;
-    height: 156px!important;
-    background-size: 100% 100%!important;
+    width: 49%!important;
+    height: 145px!important;
+    background: #fff !important;
     margin-bottom: 10px!important;
+    padding: 0!important;
   }
   .wrap .container .memorabilia .dynamic .box .box_child .img{
     height: 100px!important;
   }
   .wrap .container .memorabilia .dynamic .box .box_child .textWrap{
     padding: 0!important;
+    font-size: 15px !important;
   }
   .wrap .container .memorabilia .dynamic .box .box_child .textWrap .text{
     width: 90%!important;
@@ -75,6 +89,10 @@
   .wrap .container .memorabilia .dynamic .box .box_child .img .timeBox{
     top: 10px!important;
     left: 10px!important;
+  }
+  .wrap .center .container .content_wrap .content .lCont .box{
+    height: 150px!important;
+    padding: 0!important;
   }
 }
 .wrap .center .container .content_wrap .newPage.pageMobile{

@@ -504,6 +504,13 @@ var xin = true, // true向右偏移,false向左偏移，首次为true，默认�
     })
 
     $('.bottomBack').hide();
+    // 处理底部板块的高度
+    let liWidth = $('.introduce .ul_wrap li').eq(0).width();
+    for(var i=0;i<$('.introduce .ul_wrap li').length;i++){
+        $('.introduce .ul_wrap li').eq(i).css({
+            height:liWidth+'px'
+        })
+    }
     var mySwiper = new Swiper ('.swiper-container', {
         // autoplay: false,
         // duration: 1000,
@@ -524,7 +531,7 @@ var xin = true, // true向右偏移,false向左偏移，首次为true，默认�
     })
     var mySwiper_child = new Swiper ('.swiper-container-child', {
         loop: true,
-        autoplay: 2000,
+        autoplay: 3000,
         mousewheel: {
             releaseOnEdges: true,//PC端释放滑动
         }, 

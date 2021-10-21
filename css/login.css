@@ -16,6 +16,9 @@ a{
         width: 157px;
         height: 35px;
     }
+    .center .container .nav .right_icons{
+        display: none;
+    }
     .wrap .center .container .nav .right_icons .box{
         width: 25px;
         height: 23px;
@@ -69,6 +72,21 @@ a{
         height: 98px;
         padding: 0 20px;
         background-size: contain!important;
+    }
+    .center .container .content .right .columns .column+.column::before{
+        display: none!important;
+    }
+    .center .container .content .right .columns .column .radio::before{
+        display: none!important;
+    }
+    .center .container .content .right .columns .column:hover .box{
+        bottom: 0!important;
+    }
+    .center .container .content .right .columns .column:hover .box{
+        transform: scale(1);
+    }
+    .center .container .content .right .columns .column .radio{
+        padding-top: 20px!important;
     }
 }
 .wrap .header{

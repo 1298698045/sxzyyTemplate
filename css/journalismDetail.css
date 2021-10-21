@@ -9,7 +9,10 @@
     width: 100%!important;
   }
   .wrap .center .container .l_box .l_top,.wrap .center .container .l_box .l_bottom{
-    background-size: 100% 100%!important;
+    background: initial!important;
+  }
+  .wrap .center .container .l_box .l_center{
+    background: initial!important;
   }
   .wrap .center .container{
     width: 100%!important;
@@ -29,6 +32,13 @@
   }
   .wrap .center .container .l_box .row .r_img{
     display: none!important;
+  }
+  .wrap .center .container .l_box .l_center .hr{
+    background-size: initial!important;
+    width: 100%;
+    height: 1px !important;
+    background: #ccc!important;
+    margin-top: 10px;
   }
 }
 .wrap{

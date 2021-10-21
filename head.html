@@ -169,9 +169,11 @@
                     <#assign parentchannel=field>
                     <li class="menu">
                         <div class="row">
-                            <span @click="gotoHref('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</span>
+                            <span class="spanLabel" @click="gotoHref('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</span>
                             <#if (field.childsize>0)>
-                            <span class="right_icon" @click="handleIsShow('${field.index}')"></span>
+                            <div class="iconClickBox" @click="handleIsShow('${field.index}')">
+                                <span class="right_icon"></span>
+                            </div>
                             </#if>
                         </div>
                         <#if (field.childsize>0)>

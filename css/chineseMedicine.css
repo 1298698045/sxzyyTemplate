@@ -25,7 +25,7 @@
     }
     .wrap .mobileDescWrap .title{
       text-align: center;
-      font-size: 18px;
+      font-size: 26px;
       font-weight: bold;
       color: #fff;
       margin-bottom: 10px;
@@ -93,20 +93,34 @@
       margin: 20px 0!important;
     }
     .wrap .center .marginAuto .dynamic .box{
-      width: 48%!important;
-      height: 156px!important;
+      width: 49%!important;
+      height: 145px!important;
       background-size: 100% 100%!important;
       margin-bottom: 10px!important;
+      padding: 0!important;
+    }
+    .wrap .center .features .dynamic .box .box_child .text_Wrap{
+      font-size: 15px!important;
+    }
+    .wrap .center .row_title .name{
+      font-size: 26px!important;
+      padding: 0 15px!important;
+    }
+    .wrap .center .row_title .imgs{
+      width: 18px!important;
+      height: 30px!important;
     }
     .wrap .center .marginAuto .dynamic .box .box_child .img{
       height: 100px!important;
+      padding-top: 0!important;
+      background: #d6d6d6!important;
     }
     .wrap .center .marginAuto{
       padding: 0 10px;
       box-sizing: border-box;
     }
     .wrap .center .marginAuto .dynamic .box .box_child .text_Wrap .text{
-      width: 96%!important;
+      width: 90%!important;
       margin: 10px!important;
     }
     .wrap .center .marginAuto .dynamic .box .box_child .textWrap .text{

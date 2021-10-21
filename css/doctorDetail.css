@@ -22,7 +22,6 @@
   }
   .wrap .contentMobile{
     margin: 10px;
-    min-height: 334px;
     background: #f7f5f2;
     display: block!important;
   }
@@ -36,6 +35,7 @@
   .wrap .contentMobile .cont_wrap .photo img{
     width: 100%;
     object-fit: cover;
+    vertical-align: bottom;
   }
   .wrap .contentMobile .cont_wrap .introduction{
     padding: 0 10px;

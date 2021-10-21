@@ -3,6 +3,14 @@
       width: 100%!important;
       padding-top: 1px;
   }
+  .wrap .center .content .row_title .name{
+    font-size: 26px!important;
+    padding: 0 15px!important;
+  }
+  .wrap .center .content .row_title .imgs{
+    width: 18px!important;
+    height: 30px!important;
+  }
   .wrap .center .content .formSearch{
     display: block!important;
     margin: 20px 10px!important;
@@ -19,6 +27,13 @@
   .wrap .center .content .formSearch .filed .inp{
     width: 100%!important;
     box-sizing: border-box;
+    font-size: 16px!important;
+  }
+  .wrap .center .content .formSearch .filed .select input{
+    font-size: 16px!important;
+  }
+  .wrap .center .content .formSearch .filed .select input::-webkit-input-placeholder{
+    font-size: 16px!important;
   }
   .wrap .center .content .formSearch span{
     display: none;
@@ -90,6 +105,7 @@
     width: 100%!important;
     height: 31px!important;
     line-height: 31px!important;
+    font-size: 14px!important;
   }
   .wrap .center .content .headPhoto .box .block .hover .box_active_wrap{
     display: none!important;
@@ -122,9 +138,17 @@
     background: initial!important;
     line-height: 58px!important;
     margin: 0!important;
+    font-size: 16px!important;
+  }
+  .wrap .center .pageMobile .el-pagination .el-pager .number.active{
+    font-size: 18px !important;
+    color: #815b3f !important;
   }
   .wrap .center .pageMobile  .el-pagination .more{
     width: auto!important;
+  }
+  .wrap .center .content .headPhoto .box .box_child .name{
+    font-size: 17px !important;
   }
 }
 

@@ -16,6 +16,9 @@ var mixin = {
     },
     mounted() {
         window.addEventListener('scroll',this.handleIsScroll,true)
+        if(document.body.clientWidth<=750){
+            $('.wrap').addClass('active');
+        }
     },
     methods: {
         push: function(path) {
@@ -39,19 +42,23 @@ var mixin = {
             this.isNav = !this.isNav;
             if(this.isNav){
                 this.$nextTick(()=>{
-                    this.height = this.$refs.navBody.offsetHeight - 200;
+                    this.height = document.documentElement.clientHeight - 100;
+                    document.body.style.overflow = 'hidden'
                 })
             }else {
                 this.$nextTick(()=>{
                     this.height = 0;
+                    document.body.style.overflow = 'auto'
                 })
             }
         },
         handleIsShow(idx){
             $('.menu').eq(idx).find('.showBox').toggle();
+            $('.menu').eq(idx).find('.row').toggleClass('active');
             $('.menu').eq(idx).find('.row .right_icon').toggleClass('active');
             $('.showBox').not($('.menu').eq(idx).find('.showBox')).hide();
             $('.row .right_icon').not($('.menu').eq(idx).find('.row .right_icon')).removeClass('active');
+            $('.row').not($('.menu').eq(idx).find('.row')).removeClass('active');
             // var top = $('.wrap .mobileHeader .mobileNav .nav_body_modal').scrollTop()+100
             // $('.wrap .mobileHeader .mobileNav .nav_body_modal').scrollTop(top)
         },

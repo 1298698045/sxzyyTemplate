@@ -6,6 +6,17 @@
     width: 100%!important;
     padding-top: 1px;
   }
+  .wrap .container .hospitalWrap .row_title{
+    margin: 33px 0 20px 0 !important;
+  }
+  .wrap .container .hospitalWrap .row_title .imgs{
+    width: 18px;
+    height: 30px;
+  }
+  .wrap .container .hospitalWrap .row_title .name{
+    font-size: 26px!important;
+    padding: 0 15px!important;
+  }
   .wrap .container .hospitalWrap .tab_wrap{
     margin: 0 10px;
   }
@@ -17,6 +28,7 @@
     height: 60px!important;
     line-height: 60px!important;
     background-size: 100% 100% !important;
+    font-size: 18px!important;
   }
   .wrap .container .content .bg_block .jd_wrap{
     width: 100% !important;
@@ -29,13 +41,19 @@
     margin-right: 0!important;
   }
   .wrap .container .content .bg_block .jd_wrap .lbox .rowTitle::before{
-    min-width: 41px;
+    width: 31px!important;
+    min-width: 31px;
+    background-size: contain !important;
   }
   .wrap .container .content .bg_block .jd_wrap .lbox .rowTitle::after{
-    min-width: 41px;
+    width: 31px!important;
+    min-width: 31px;
+    background-size: contain !important;
   }
   .wrap .container .content .bg_block .jd_wrap .lbox .rowTitle{
-    font-size: 24px!important;
+    font-size: 18px!important;
+    font-weight: bold !important;
+    padding-bottom: 10px!important;
   }
   .wrap .container .content.content_wrap .bg_block{
     height: auto!important;
@@ -45,6 +63,9 @@
   }
   .wrap .container .content .marginAuto{
     width: 95%!important;
+  }
+  .wrap .container .content .marginAuto.features{
+    width: 100%!important;
   }
   .wrap .container .content_wrap .mingjia{
     width: auto !important;
@@ -71,8 +92,9 @@
     background: url('../images/c_r.png') no-repeat!important;
   }
   .wrap .container .content_wrap .mingjia .mj_warp .row .text{
-    font-size: 24px!important;
+    font-size: 18px!important;
     padding: 10px 0 !important;
+    font-weight: bold;
   }
   .wrap .container .content_wrap .bg_block_two{
     height: auto !important;
@@ -100,7 +122,8 @@
   }
   .wrap .container .content_wrap .bg_block_two .z_cont_wrap .rBox .rowTitle{
     width: 100%!important;
-    font-size: 24px!important;
+    font-size: 18px!important;
+    font-weight: bold;
     padding-bottom: 10px!important;
   }
   /* 医院介绍底部轮播 */
@@ -109,7 +132,8 @@
     box-sizing: border-box;
   }
   .wrap .container .content_wrap .banner_wrap .honor .rowTitle{
-    font-size: 24px!important;
+    font-size: 18px!important;
+    font-weight: bold;
     padding-top: 20px!important;
     padding-bottom: 20px!important;
   }
@@ -142,6 +166,7 @@
     margin-left: 0!important;
     margin-bottom: 10px;
     overflow-y: auto!important;
+    height: auto!important;
   }
   .wrap .container .content .historyWrap .rightWrap .stepBox{
     padding-left: 20px!important;
@@ -154,6 +179,7 @@
   }
   .wrap .container .content .historyWrap .rightWrap .stepBox .title.top{
     padding-top: 28px !important;
+    font-size: 18px!important;
   }
   .wrap .bottomBack{
     margin-top: 0!important;
@@ -162,11 +188,15 @@
   .wrap .container .features .dynamic{
     margin: 20px 10px !important;
   }
+  .wrap .container .features .dynamic .box .box_child .textWrap{
+    font-size: 15px !important;
+  }
   .wrap .container .features .dynamic .box{
-    width: 48%!important;
-    height: 156px!important;
-    background-size: 100% 100% !important;
-    margin-bottom: 20px!important;
+    width: 49%!important;
+    height: 145px!important;
+    background: #fff!important;
+    margin-bottom: 10px!important;
+    padding: 0!important;
   }
   .wrap .container .features .dynamic .box .box_child .img{
     height: 100px!important;
@@ -195,6 +225,7 @@
   .wrap .container .content .NoticeBody{
     display: block!important;
     margin-bottom: 20px!important;
+    margin-top: 0!important;
   }
   .wrap .container .content .traffic{
     display: block !important;
@@ -202,9 +233,14 @@
   }
   .traffic .left_box{
     width: 100%!important;
+    height: auto!important;
   }
   .traffic .left_box .imgs{
     width: 100% !important;
+    height: 230px!important;
+  }
+  .BMap_stdMpCtrl{
+    display: none;
   }
   .traffic .right_box{
     width: 100% !important;

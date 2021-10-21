@@ -55,8 +55,14 @@
     padding: 0 10px;
     box-sizing: border-box;
   }
-  .wrap .center .News .left_box .row .l_name{
-    margin-left: 10px;
+  .wrap .center .News .left_box .cont{
+    margin-top: 15px !important;
+  }
+  .wrap .center .News .left_box .cont .banner_wrap .r_desc .title{
+    width: 95%!important;
+  }
+  .wrap .center .News .left_box .cont .banner_wrap .r_desc .desc{
+    width: 95%!important;
   }
   .wrap .center .News .left_box .cont .banner_wrap .swiper-container-child .swiper-slide{
     width: 100%!important;
@@ -75,7 +81,8 @@
     margin-top: 0!important;
   }
   .wrap .center .News .left_box .row .l_name{
-    font-size: 16px!important;
+    margin-left: 10px;
+    font-size: 20px!important;
   }
   .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
     bottom: 218px!important;
@@ -86,7 +93,7 @@
     box-sizing: border-box;
   }
   .wrap .center .News .right_box .row .l_name{
-    font-size: 16px!important;
+    font-size: 20px!important;
   }
   .wrap .center .News .right_box .cont .text{
     width: auto!important;
@@ -99,6 +106,7 @@
     display: block!important;
     padding: 28px 10px!important;
     box-sizing: border-box;
+    padding-top: 0!important;
   }
   .wrap .center .department .cont .img_wrap,.wrap .center .department .cont .img_wrap .mantle{
     width: 100%!important;
@@ -114,7 +122,14 @@
   }
   .wrap .center .department .cont .departList .uls .lis{
     /* margin: 10px!important; */
-    margin: 10px 0 10px 0!important;
+    margin-top: 8px!important;
+    width: 48%!important;
+    background: url('../images/c_tab.png') no-repeat !important;
+    background-size: 100% 100%!important;
+  }
+  .wrap .center .department .cont .departList .uls .lis.active{
+    background: url('../images/c_tab_active.png') no-repeat !important;
+    background-size: 100% 100%!important;
   }
   .wrap .center .department .cont .departList .tabs{
     /* padding: 0 10px; */
@@ -125,9 +140,12 @@
   }
   .wrap .center .department .imgList{
     flex-wrap: wrap;
+    margin: 0 10px;
   }
   .wrap .center .department .imgList .box{
-    width: 50%!important;
+    width: 49%!important;
+    margin-bottom: 8px;
+    font-size: 16px!important;
   }
   .wrap .center .department .cont .img_wrap .mantle .text_cont .desc{
     width: 100%!important;
@@ -138,7 +156,7 @@
   }
   .wrap .center .introduce .ul_wrap li{
     width: 50%!important;
-    height: 188px!important;
+    height: auto;
     background-size: 100% 100%!important;
   }
   .wrap .center .introduce .ul_wrap li .box .name{
@@ -184,8 +202,8 @@
   }
 
   .wrap .center .headPhoto-mobile .swiper-slide .box {
-    width: 30%;
-    height: 320px;
+    width: 31%;
+    height: 295px;
     background: #fff;
     padding-top: 5px;
     cursor: pointer;
@@ -195,7 +213,7 @@
   }
   .wrap .center .headPhoto-mobile .swiper-slide .box .box_child {
     width: 95%;
-    height: 228px;
+    height: 210px;
     margin: 0 auto;
     display: block;
     text-align: center;
@@ -217,14 +235,14 @@
     object-fit: cover;
   }
   .wrap .center .headPhoto-mobile .swiper-slide .box .box_child .name {
-    font-size: 16px;
+    font-size: 17px;
     color: #815b3f;
     padding-top: 12px;
   }
   .wrap .center .headPhoto-mobile .swiper-slide .box .box_child .position {
     font-size: 14px;
     color: #999999;
-    padding-top: 10px;
+    padding-top: 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -266,7 +284,7 @@
     margin: 5px 0;
   }
   .wrap .center .headPhoto-mobile .swiper-slide .box .back_bord .back {
-    width: 80%;
+    width: 100%;
     height: 30px;
     line-height: 30px;
     text-align: center;
@@ -318,9 +336,21 @@
     margin: 20px auto;
     font-size: 14px;
     border-radius: 30px;
+    color: #815b3f;
   }
   .wrap .browseMore.active{
     display: block!important;
+  }
+  .wrap .center .News .right_box .row .list_text .back{
+    font-size: 14px!important;
+    width: 80px!important;
+  }
+  .wrap .center .News .left_box .row .list_text .back{
+    font-size: 14px!important;
+    width: 80px!important;
+  }
+  .wrap .center .introduce .ul_wrap{
+    margin: 0 10px;
   }
   /* 底部 */
   .wrap .footer{

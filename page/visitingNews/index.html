@@ -674,7 +674,11 @@
                                 this.goodAt = data.goodAt;
                                 this.departmentId = data.departmentId;
                                 this.departmentName = data.departmentName;
-                                this.doctorName = data.doctorName;
+                                if(data.doctorName.indexOf('#')!==-1){
+                                    this.doctorName = data.doctorName.split('#')[0]
+                                }else {
+                                    this.doctorName = data.doctorName;
+                                }
                                 this.handleSearch();
                             }
                         })

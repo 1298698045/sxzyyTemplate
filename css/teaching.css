@@ -15,10 +15,17 @@
     height: 36px!important;
     line-height: 36px!important;
   }
+  .wrap .center .container .content{
+    margin: 0 10px;
+  }
+  .wrap .center .container .content .dynamic{
+    margin: 20px 0 !important;
+  }
   .wrap .center .container .content .dynamic .block{
     width: 100%!important;
     height: auto!important;
-    background-size: 100% 100%!important;
+    background: #fff!important;
+    padding: 0!important;
   }
   .wrap .center .container .content .dynamic .block .box{
     display: block!important;
@@ -26,15 +33,22 @@
   .wrap .center .container .content .dynamic .block .box .rightCont{
     display: flex;
     align-items: center;
-    padding: 0 24px;
+    padding: 0 10px;
     box-sizing: border-box;
     justify-content: space-between;
   }
   .wrap .center .container .content .dynamic .block .box .rightCont .title{
-    margin: 24px 0 !important;
+    margin: 16px 0 !important;
+    font-size: 15px!important;
+  }
+  .d_multiline{
+    flex: 1;
+    width: 100% !important;
+    height: 40px!important;
   }
   .wrap .center .container .content .dynamic .block .box .img{
     width: 100%!important;
+    background: #d6d6d6;
   }
   .pagePC{
     display: none!important;
@@ -46,9 +60,23 @@
     width: 10px!important;
     background: initial!important;
     line-height: 58px!important;
+    font-size: 16px!important;
+  }
+  .wrap .center .container .content .pageMobile .el-pagination .el-pager .number.active{
+    color: #815b3f !important;
+    font-size: 18px!important;
   }
   .wrap .center .container .content .dynamic .block .box .rightCont .boxTime{
     background-size: 100% 100%!important;
+    margin-left: 0 !important;
+  }
+  .wrap .center .container .row_title .name{
+    font-size: 26px!important;
+    padding: 0 15px!important;
+  }
+  .wrap .center .container .row_title .imgs{
+    width: 18px!important;
+    height: 30px!important;
   }
 }
 .pagePC{

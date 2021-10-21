@@ -22,16 +22,19 @@
       margin: 20px 0 20px 0!important;
     }
     .wrap .center .dynamic .box{
-      width: 48%!important;
-      height: 156px!important;
+      width: 49%!important;
+      height: 145px!important;
       background-size: 100% 100%!important;
       margin-bottom: 10px!important;
+      padding: 0!important;
     }
     .wrap .center .dynamic .box .box_child .img {
       height: 100px!important;
+      background: #d6d6d6 !important;
     }
     .wrap .center .dynamic .box .box_child .textWrap{
       padding: 0!important;
+      font-size: 15px !important;
     }
     .wrap .center .dynamic .box .box_child .textWrap .text{
       width: 90%!important;
@@ -62,7 +65,7 @@
       margin: 0!important;
     }
     .wrap .ysImageWrap .ys_container .tag .text{
-      font-size: 28px!important;
+      font-size: 26px!important;
       line-height: initial!important;
       padding: 0!important;
       margin: 0!important;
@@ -78,6 +81,14 @@
     }
     .wrap .ysImageWrap .ys_container .tag .text .bottomBack{
       display: none;
+    }
+    .wrap .center .row_title .name{
+      font-size: 26px!important;
+      padding: 0 15px!important;
+    }
+    .wrap .center .row_title .imgs{
+      width: 18px!important;
+      height: 30px!important;
     }
     .wrap .ysImageWrap .ys_container .rightBox{
       overflow: auto!important;
@@ -112,7 +123,7 @@
     }
     .wrap .mobileDescWrap .title{
       text-align: center;
-      font-size: 18px;
+      font-size: 26px;
       font-weight: bold;
       color: #fff;
     }

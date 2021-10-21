@@ -313,7 +313,11 @@
                 },
                 mounted: function() {
                     if(this.$route.path=='/journalism/meitibaodao'){
-                        this.page.pageSize = 9;
+                        if(document.body.clientWidth<=750){
+                            this.page.pageSize = 10;
+                        }else {
+                            this.page.pageSize = 9;
+                        }
                     }
                     this.list()
                 }

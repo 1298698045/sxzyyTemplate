@@ -188,6 +188,9 @@
                 </#if>
                 {/ms:arclist}
             </div>
+            <div class="loadMore" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
+                更多查看&nbsp;&nbsp;+
+            </div>
             {/ms:channel}
             <div class="row_title">
                 <div class="imgs">
@@ -228,7 +231,7 @@
                 {/ms:arclist}
             </div>
             <div class="loadMore" @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">
-                加载更多&nbsp;&nbsp;+
+                更多查看&nbsp;&nbsp;+
             </div>
             {/ms:channel}
         </div>
