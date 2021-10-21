@@ -362,8 +362,8 @@
                     </li>
                     <li>
                         <div class="box">
-                            <p class="name active">网上书城</p>
-                            <p class="more d-active">查看更多</p>
+                            <p class="name">网上书城</p>
+                            <p class="more">查看更多</p>
                         </div>
                     </li>
                     {ms:channel type='self'  typeid='1400729393410502658'}
@@ -377,8 +377,8 @@
                     {ms:channel type='self'  typeid='1400727666594574337'}
                     <li>
                         <div class="box">
-                            <p class="name active">中医特色</p>
-                            <p class="more d-active" @click="goto('{ms:global.url/}${field.typelink}')">查看更多</p>
+                            <p class="name">中医特色</p>
+                            <p class="more" @click="goto('{ms:global.url/}${field.typelink}')">查看更多</p>
                         </div>
                     </li>
                     {/ms:channel}
@@ -505,11 +505,13 @@ var xin = true, // true向右偏移,false向左偏移，首次为true，默认�
 
     $('.bottomBack').hide();
     // 处理底部板块的高度
-    let liWidth = $('.introduce .ul_wrap li').eq(0).width();
-    for(var i=0;i<$('.introduce .ul_wrap li').length;i++){
-        $('.introduce .ul_wrap li').eq(i).css({
-            height:liWidth+'px'
-        })
+    if(document.documentElement.clientWidth<=750){
+        let liWidth = $('.introduce .ul_wrap li').eq(0).width();
+        for(var i=0;i<$('.introduce .ul_wrap li').length;i++){
+            $('.introduce .ul_wrap li').eq(i).css({
+                height:liWidth+'px'
+            })
+        }
     }
     var mySwiper = new Swiper ('.swiper-container', {
         // autoplay: false,
