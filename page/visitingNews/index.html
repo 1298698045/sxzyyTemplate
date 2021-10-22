@@ -63,10 +63,11 @@
                     <div class="left_icon icon">
                     </div>
                     <div class="swiper-container">
-                        <div class="swiper-wrapper" id="swiperId">
+                        <div class="swiper-wrapper" id="swiperId" ref="swiperTabs">
                             {ms:channel type='son'}
                             <#if field.typetitle!='预约挂号'>
                             <div class="swiper-slide tabs-item"
+                            route="${field.typepath}"
                             :class="{active : $route.path == '${field.typepath}'}"
                             title="${field.typetitle}"  @click="push('${field.typepath}')">
                                 ${field.typetitle}
@@ -478,7 +479,7 @@
                             </div>
                             <div class="filed">
                                 <div class="inp select" id="departSel">
-                                    <input type="text" @focus="handleFocus" @blur="handleBlur" v-model="departmentName" placeholder="科室名称" readonly>
+                                    <input type="text" @focus="handleFocus" @blur="handleBlur" v-model.trim="departmentName" placeholder="科室名称" readonly>
                                     <i class="bottom_icon">
                                         
                                     </i>
@@ -491,7 +492,7 @@
                                 </div>
                             </div>
                             <div class="filed">
-                                <input type="text" v-model="doctorName" class="inp" placeholder="医师名称">
+                                <input type="text" v-model.trim="doctorName" class="inp" placeholder="医师名称">
                             </div>
                             <div class="fieldMobile">
                                 <div class="filed">
@@ -599,7 +600,9 @@
                         },
                         handleSearch(){
                             console.log(this.goodAt,this.departmentId,this.doctorName);
-
+                            if(this.doctorName!=''){
+                                this.doctorName = this.doctorName.replace(/[\s]+/g,'')
+                            }
                             if(this.departmentId!=''&&this.goodAt!=''&&this.doctorName!=''){
                                 this.queryList = this.localList.filter(item=>{
                                     if(this.departmentId == item.departmentId){
@@ -827,6 +830,17 @@
         mixins: [mixin],
         router:router,
         methods: {
+            getIdx(tabs){
+                let path = this.$route.path;
+                let currentIdx;
+                for(var i=0;i<tabs.length;i++){
+                    let route = tabs[i].getAttribute('route');
+                    if(path == route){
+                        currentIdx = i;
+                    }
+                }
+                return currentIdx+1;
+            }
         },
         created: function(){
             {ms:channel type='son' size=1}
@@ -834,6 +848,47 @@
                 this.push('${field.typepath}')
             }
             {/ms:channel}
+        },
+        mounted: function(){
+            var windowWidth = document.body.clientWidth;
+            var slidesPerView = 5;
+            if(windowWidth<780){
+                slidesPerView = 2;
+            }
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                slidesPerView: slidesPerView,
+                paginationClickable: true,
+                spaceBetween: 30,
+                nextButton: '.right_icon',
+                prevButton: '.left_icon',
+                onSlideChangeEnd: function(swiper){
+                    if(swiper.isBeginning){
+                        swiper.prevButton.removeClass('prev_active');
+                    }else{
+                        swiper.prevButton.addClass('prev_active');
+                    }
+                    if(swiper.isEnd){
+                        swiper.nextButton.addClass('next_active');
+                        $('#swiperId').css('transition-duration','0ms')
+                        $('#swiperId').addClass('swiperId')
+                        var X = $('#swiperId').css('transform').replace(/[^0-9\-,]/g,'').split(',')[4]-40
+                        $('#swiperId').css('transform','translate3d('+X+'px,0px,0px)')
+                        setTimeout(function(){
+                            $('#swiperId').removeClass('swiperId')
+                        },150);
+                    }else{
+                        swiper.nextButton.removeClass('next_active');
+                    }
+                }
+            });
+            if(document.body.clientWidth<=750){
+                let idx = this.getIdx(this.$refs.swiperTabs.children);
+                if(idx>=2){
+                    let toNum = this.$refs.swiperTabs.children.length * idx / this.$refs.swiperTabs.children.length / 2;
+                    swiper.slideTo(Math.round(toNum),500,true);
+                }
+            } 
         }
     })
     $(function(){

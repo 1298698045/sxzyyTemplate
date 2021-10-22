@@ -30,6 +30,7 @@ var mixin = {
         },
         goto: function(url) {
             window.open(url)
+            this.isNav = false
         },
         onMenuMouseOver: function(menu) {
             this.selectMenu = menu

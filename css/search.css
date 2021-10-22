@@ -3,6 +3,14 @@
     width: 100%!important;
     padding-top: 1px;
   }
+  .wrap .center .container .row_title .name{
+    font-size: 26px!important;
+    padding: 0 15px!important;
+  }
+  .wrap .center .container .row_title .imgs{
+    width: 18px!important;
+    height: 30px!important;
+  }
   .wrap .center .container .content_wrap .content .lCont .box:first-child{
     border-top: 1px solid #cccccc;
   }

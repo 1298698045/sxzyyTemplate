@@ -125,9 +125,9 @@
                     {/ms:channel}
                 </div>
                 <div class="swiper-container-child tabs tabsMobile">
-                    <div class="swiper-wrapper" id="swiperId_child">
+                    <div class="swiper-wrapper" id="swiperId_child" ref="swiperTabs">
                         {ms:channel type='son' typeid='1403327431889219586'}
-                        <div class="swiper-slide">
+                        <div class="swiper-slide" route="${field.typepath}">
                             <div class="tab text tabs-item"
                             :class="{active : $route.path == '${field.typepath}'}"
                             title="${field.typetitle}" @click="push('${field.typepath}')">
@@ -221,36 +221,59 @@
                 this.push('${field.typepath}')
             }
             {/ms:channel}
+        },
+        mounted: function(){
+            var swiper_child = new Swiper('.swiper-container-child', {
+                slidesPerView: 2,
+                paginationClickable: true,
+                spaceBetween: 30,
+                nextButton: '.right_icon_child',
+                prevButton: '.left_icon_child',
+                onSlideChangeEnd: function(swiper_child){
+                    if(swiper_child.isBeginning){
+                        swiper_child.prevButton.removeClass('prev_active');
+                    }else{
+                        swiper_child.prevButton.addClass('prev_active');
+                    }
+                    if(swiper_child.isEnd){
+                        swiper_child.nextButton.addClass('next_active');
+                        $('#swiperId_child').css('transition-duration','0ms')
+                        $('#swiperId_child').addClass('swiperId_child')
+                        var X = $('#swiperId_child').css('transform').replace(/[^0-9\-,]/g,'').split(',')[4]-40
+                        // $('#swiperId_child').css('transform','translate3d('+X+'px,0px,0px)')
+                        setTimeout(function(){
+                            $('#swiperId_child').removeClass('swiperId_child')
+                        },150);
+                    }else{
+                        swiper_child.nextButton.removeClass('next_active');
+                    }
+                }
+            }); 
+            if(document.body.clientWidth<=750){
+                let idx = this.getIdx(this.$refs.swiperTabs.children);
+                if(idx>=2){
+                    let toNum = this.$refs.swiperTabs.children.length * idx / this.$refs.swiperTabs.children.length / 2;
+                    swiper_child.slideTo(Math.round(toNum),500,true);
+                }
+            } 
+        },
+        methods:{
+            getIdx(tabs){
+                let path = this.$route.path;
+                let currentIdx;
+                for(var i=0;i<tabs.length;i++){
+                    let route = tabs[i].getAttribute('route');
+                    if(path == route){
+                        currentIdx = i;
+                    }
+                }
+                return currentIdx+1;
+            }
         }
     })
 </script>
 <script>
-    var swiper_child = new Swiper('.swiper-container-child', {
-        slidesPerView: 2,
-        paginationClickable: true,
-        spaceBetween: 30,
-        nextButton: '.right_icon_child',
-        prevButton: '.left_icon_child',
-        onSlideChangeEnd: function(swiper_child){
-            if(swiper_child.isBeginning){
-                swiper_child.prevButton.removeClass('prev_active');
-            }else{
-                swiper_child.prevButton.addClass('prev_active');
-            }
-            if(swiper_child.isEnd){
-                swiper_child.nextButton.addClass('next_active');
-                $('#swiperId_child').css('transition-duration','0ms')
-                $('#swiperId_child').addClass('swiperId_child')
-                var X = $('#swiperId_child').css('transform').replace(/[^0-9\-,]/g,'').split(',')[4]-40
-                $('#swiperId_child').css('transform','translate3d('+X+'px,0px,0px)')
-                setTimeout(function(){
-                    $('#swiperId_child').removeClass('swiperId_child')
-                },150);
-            }else{
-                swiper_child.nextButton.removeClass('next_active');
-            }
-        }
-    });    
+       
 </script>
 <script src="{ms:global.host/}/{ms:global.style/}/js/scroll.js" defer></script>
 </html>

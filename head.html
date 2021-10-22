@@ -180,7 +180,7 @@
                         <div class="showBox">
                             {ms:channel type='son' orderby='sort'}
                             <div class="cel">
-                                <a href="<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>">${field.typetitle}</a>
+                                <span @click="gotoHref('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</span>
                             </div>
                             {/ms:channel}
                         </div>
