@@ -146,6 +146,7 @@
   }
   .wrap .center .pageMobile  .el-pagination .more{
     width: auto!important;
+    background: initial !important;
   }
   .wrap .center .content .headPhoto .box .box_child .name{
     font-size: 17px !important;

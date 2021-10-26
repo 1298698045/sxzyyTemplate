@@ -6,7 +6,8 @@
     font-size: 24px!important;
   }
   .wrap .center .container .l_center img{
-    width: 100%!important;
+    max-width: 100%!important;
+    height: auto!important;
   }
   .wrap .center .container .l_box .l_top,.wrap .center .container .l_box .l_bottom{
     background: initial!important;
@@ -17,6 +18,7 @@
   .wrap .center .container{
     width: 100%!important;
     display: block!important;
+    object-fit: contain;
   }
   .wrap .center .container .l_box{
     width: 100%!important;

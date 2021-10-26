@@ -73,6 +73,7 @@
   }
   .wrap .center .pageMobile .el-pagination .el-pager .more{
     width: 10px!important;
+    background: initial !important;
   }
   .wrap .center .dynamic{
     flex-wrap: wrap;

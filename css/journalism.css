@@ -49,6 +49,7 @@
   }
   .wrap .center .container .content_wrap .newPage .el-pagination .more{
     width: 10px !important;
+    background: initial !important;
   }
   .wrap .center .container .content_wrap .newPage.pagePC{
     display: none!important;

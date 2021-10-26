@@ -32,16 +32,16 @@ a{
         box-sizing: border-box;
     }
     .wrap .center .poFixed{
-        width: 335px;
-        height: 340px;
+        width: 300px;
+        height: 300px;
         top: 40%;
         background: url('../images/mobileMax.png') no-repeat;
         background-size: 100% 100%;
     }
     .wrap .center .poFixed .banner{
-        width: 246px;
-        height: 246px;
-        margin: 46px auto;
+        width: 220px;
+        height: 220px;
+        margin: 39px auto;
     }
     .wrap .center .container .content .right{
         top: 30px;
@@ -401,10 +401,24 @@ a{
 .center .poFixed .banner .swiper-container{
     width: 100%;
     height: 100%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+}
+.center .poFixed .banner .swiper-container .swiper-slide{
+    -webkit-border-radius: 50% !important;
+    overflow: hidden !important;
+}
+.center .poFixed .banner .swiper-container a{
+    display: block!important;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 .center .poFixed .banner .swiper-container img{
+    display: inline-block !important;
     width:100%;
     height: 100%;
     object-fit: cover;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
 }
