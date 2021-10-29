@@ -58,11 +58,14 @@
   .wrap .center .News .left_box .cont{
     margin-top: 15px !important;
   }
+  .wrap .center .News .left_box .cont .banner_wrap .r_desc{
+    width: 100%!important;
+  }
   .wrap .center .News .left_box .cont .banner_wrap .r_desc .title{
-    width: 95%!important;
+    width: 100%!important;
   }
   .wrap .center .News .left_box .cont .banner_wrap .r_desc .desc{
-    width: 95%!important;
+    width: 100%!important;
   }
   .wrap .center .News .left_box .cont .banner_wrap .swiper-container-child .swiper-slide{
     width: 100%!important;
@@ -83,6 +86,9 @@
   .wrap .center .News .left_box .row .l_name{
     margin-left: 10px;
     font-size: 20px!important;
+  }
+  .banner_wrap .swiper-pagination-bullets{
+    width: 100%!important;
   }
   .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{
     bottom: 218px!important;
