@@ -81,6 +81,11 @@
         animation-iteration-count:1;
         animation-fill-mode:forwards;
     }
+    .wrap .container .center .list_box .box:nth-child(9){
+        animation:mymove 2.3s infinite;
+        animation-iteration-count:1;
+        animation-fill-mode:forwards;
+    }
     @keyframes mymove {
         from {bottom:-30px;opacity: 0;}
         to {bottom:0px;opacity: 1;}
@@ -193,6 +198,16 @@
                             </div>
                         </a>
                     </li>
+                    {ms:channel typeid='1478999886841622530' type='self'}
+                    <li class="box">
+                        <a href="<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>">
+                            <div class="box_title">
+                                <img src="{ms:global.host/}/{ms:global.style/}/images/yg_download.png" alt="">
+                                <p>下载专区</p>
+                            </div>
+                        </a>
+                    </li>
+                    {/ms:channel}
                 </ul>
             </div>
         </div>

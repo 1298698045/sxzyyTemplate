@@ -163,6 +163,9 @@
     background-position: center;
     background-attachment: fixed;
   }
+  .wrap .center .pageMobile{
+    display: none;
+  }
   .wrap .center {
     width: 1230px;
     margin: 30px auto;

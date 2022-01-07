@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>{ms:global.name/}</title>
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/public.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/head.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/footer.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/infoOpen.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/pagination.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/rightScroll.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/articleContent.css">
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/patient.css">
+    <script type="text/javascript" src="${base}/static/plugins/vue/2.6.9/vue.js"></script>
+    <script type="text/javascript" src="${base}/static/plugins/vue-router/3.5.1/vue-router.js"></script>
+    <style>
+        .rowSearch{
+            text-align: center;
+        }
+        .rowSearch label {
+            width: 770px;
+            height: 40px;
+            background: #f5f8fb;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            border-radius: 5px;
+            display: inline-block;
+            line-height: 40px;
+            text-align: left;
+            padding-left: 10px;
+            box-shadow: rgba(204, 204, 204, 1) solid 1px;
+        }
+        .rowSearch label input{
+            width: calc(100% - 100px);
+            background: #f5f8fb;
+            box-sizing: border-box;
+        }
+        .rowSearch button{
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 14px;
+            color: #fff;
+            background: #6a3f24;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        .container .content{
+            width: 1230px;
+            margin: 0 auto;
+        }
+        .container .content .uls_box{
+            padding: 50px 0;
+            box-sizing: border-box;
+        }
+        .container .content .uls_box .lis{
+            width: 290px;
+            height: 234px;
+            background: #f5f8fb;
+            margin-top: 20px;
+            margin-right: 23px;
+            display: inline-block;
+            text-align: center;
+        }
+        .container .content .uls_box .lis:hover{
+            background: #0ba29a;
+            cursor: pointer;
+        }
+        .container .content .uls_box .lis:hover .icon{
+            background: url('{ms:global.host/}/{ms:global.style/}/images/archive_2.png') no-repeat 100% 100%;
+        }
+        .container .content .uls_box .lis:hover .name{
+            color: #fff;
+        }
+        .container .content .uls_box .lis:hover .time{
+            color: #fff;
+        }
+        .container .content .uls_box .lis .icon{
+            width: 26px;
+            height: 26px;
+            background: url('{ms:global.host/}/{ms:global.style/}/images/archive_1.png') no-repeat 100% 100%;
+            margin: 64px auto 0;
+        }
+        .container .content .uls_box .lis .name{
+            width: 202px;
+            height: 54px;
+            margin: 0 auto;
+            line-height: 1.5;
+            text-align: center;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-size: 18px;
+            color: #333333;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        .container .content .uls_box .lis .time{
+            font-size: 16px;
+            color: #999999;
+        }
+        .container .content .uls_box .lis:nth-child(4n){
+            margin-right: 0 !important;
+        }
+        @media screen and (max-width: 750px) {
+            .wrap .center {
+                width: 100% !important;
+                padding-bottom: 0 !important;
+            }
+
+            .wrap .center .container {
+                padding-top: 1px;
+            }
+
+            .wrap .center .container .tabs {
+                padding: 0 10px;
+                justify-content: space-between;
+                box-sizing: border-box;
+            }
+
+            .wrap .center .container .tabs.tabsPC {
+                display: none !important;
+            }
+
+            .wrap .center .container .tabs.tabsMobile {
+                display: block !important;
+                overflow: hidden;
+            }
+
+            .wrap .center .container .tabs .tab {
+                width: 24% !important;
+                font-size: 14px;
+                margin-right: 0 !important;
+            }
+
+            .wrap .center .container .tabs .tab.text {
+                width: 100% !important;
+                height: 36px !important;
+                line-height: 36px !important;
+            }
+
+            .wrap .center .container .content .NoticeBody {
+                display: block !important;
+                box-sizing: border-box;
+            }
+
+            .wrap .container .content .NoticeBody .left_wrap {
+                width: 100% !important;
+                height: 260px !important;
+            }
+
+            .wrap .container .content .NoticeBody .right_wrap {
+                width: 100% !important;
+            }
+
+            .wrap .container .content .NoticeBody .left_wrap .l_text {
+                width: 90% !important;
+                height: 85% !important;
+            }
+
+            .wrap .container .content .NoticeBody .right_wrap .article {
+                width: 96% !important;
+            }
+
+            .d-visible {
+                width: 100% !important;
+            }
+
+            .wrap .container .content .NoticeBody .right_wrap .descWrap {
+                width: auto !important;
+            }
+
+            .wrap .container .content .NoticeBody .left_wrap .l_text .row_back {
+                width: 95% !important;
+            }
+            .wrap .center .container .content{
+                width: 100% !important;
+            }
+            .rowSearch label{
+                width: auto !important;
+            }
+            .container .content .uls_box .lis{
+                width: 163px !important;
+                height: 160px !important;
+            }
+            .container .content .uls_box .lis:nth-child(2n){
+                margin-right: 0 !important;
+            }
+            .container .content .uls_box .lis .icon{
+                margin: 20px auto 0 !important;
+            }
+            .container .content .uls_box .lis .name{
+                width: 100% !important;
+                height: 38px !important;
+                font-size: 14px !important;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/pagination.css">
+</head>
+
+<body>
+    <div id="app" class="wrap" v-cloak>
+        <#include "head.html" />
+        <#include "right.html" />
+        <div class="center">
+            <#include "location.html" />
+            <div class="container">
+                <div class="row_title">
+                    <div class="imgs">
+                        <img src="{ms:global.host/}/{ms:global.style/}/images/01.png" alt="">
+                    </div>
+                    <p class="name">${field.typetitle}</p>
+                    <div class="imgs">
+                        <img src="{ms:global.host/}/{ms:global.style/}/images/02.png" alt="">
+                    </div>
+                </div>
+                <div class="rowSearch">
+                    <label>
+                        快速检索：
+                        <input placeholder="输入关键词进行搜索" type="text">
+                    </label>
+                    <button id="search_btn">查找</button>
+                </div>
+                <div class="content">
+                    {ms:channel type='self'}
+                    <ul class="uls_box">
+                        {ms:arclist}
+                        <li class="lis" name='${field.title}' @click="goto('{ms:global.url/}${field.link}')">
+                            <p class="icon"></p>
+                            <p class="name">${field.title}</p>
+                            <p class="time">${(field.date?string("yyyy-MM-dd"))!}</p>
+                        </li>
+                        {/ms:arclist}
+                    </ul>
+                    {/ms:channel}
+                </div>
+            </div>
+        </div>
+        <#include "foot.html" />
+    </div>
+</body>
+<script src="{ms:global.host/}/{ms:global.style/}/js/app.js"></script>
+<script src="{ms:global.host/}/{ms:global.style/}/js/jquery.js"></script>
+<script src="{ms:global.host/}/{ms:global.style/}/utils/head.js"></script>
+<script src="{ms:global.host/}/{ms:global.style/}/utils/footer.js"></script>
+<script src="{ms:global.host/}/{ms:global.style/}/js/pagination.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        mixins: [mixin],
+        data: {
+            typePath: '<#if field.typeid?has_content>${field.typeid}<#if field.parentids?has_content>,${field.parentids}</#if><#else>0</#if>'
+        }
+    })
+    $('.head_top .btn').removeClass('active');
+    $('.head_top .btn').eq(1).addClass('active');
+    $('.header_child #edition .back_url').removeClass('active');
+    $('.header_child #edition .back_url').eq(1).addClass('active');
+    $('#search_btn').click(function(){
+     $('.uls_box .lis').show();
+       let val = $('.rowSearch input').val()
+       let list = $('.uls_box .lis')
+       if(val!=''){
+           list.each(function(e){
+               console.log(e)
+               let name = $('.uls_box .lis').eq(e).attr('name');
+               if(name.indexOf(val)!=-1){
+                $('.uls_box .lis').eq(e).show()
+               }else {
+                   $('.uls_box .lis').eq(e).hide()
+               }
+           })
+       }
+    })
+</script>
+
+</html>
