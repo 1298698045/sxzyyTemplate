@@ -165,6 +165,23 @@
                 <i class="icon bottom_icon"></i>
             </div>
             {/ms:arclist}
+            <div class="rowColumn">
+                <div class="box">
+                    <p>预约挂号</p>
+                </div>
+                {ms:channel type='self' typeid='1403306687218151426'}
+                <div class="box"
+                    @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>?hospitalName=${'victory'}')">
+                    <p>出诊信息</p>
+                </div>
+                {/ms:channel}
+                {ms:channel type='self' typeid='1402954155253919745'}
+                <div class="box"
+                    @click="goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>?hospitalName=${'victory'}')">
+                    <p>医院位置</p>
+                </div>
+                {/ms:channel}
+            </div>
         </div>
         <div class="center">
             <div class="row_title">

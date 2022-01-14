@@ -197,6 +197,26 @@
   .wrap .center .swiper-container .swiper-pagination{
     bottom: 0!important;
   }
+  .wrap .mobileDescWrap .rowColumn{
+    display: flex;
+    justify-content: center;
+    margin-top: 13px;
+  }
+  .wrap .mobileDescWrap .rowColumn .box{
+    width: 53px !important;
+    height: 53px !important;
+    background: url('../images/box.png') no-repeat !important;
+    background-size: 100% 100% !important;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-right: 20px;
+    color: #fff;
+  }
+  .wrap .mobileDescWrap .rowColumn .box:last-child{
+    margin-right: 0 !important;
+  }
 }
 .swiper-pagination{
   margin: 10px 0;

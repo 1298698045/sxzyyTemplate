@@ -158,6 +158,26 @@
       margin: 0 auto;
       display: block!important;
     }
+    .wrap .mobileDescWrap .rowColumn{
+      display: flex;
+      justify-content: center;
+      margin-top: 13px;
+    }
+    .wrap .mobileDescWrap .rowColumn .box{
+      width: 53px !important;
+      height: 53px !important;
+      background: url('../images/box.png') no-repeat !important;
+      background-size: 100% 100% !important;
+      font-size: 12px;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+      margin-right: 20px;
+      color: #fff;
+    }
+    .wrap .mobileDescWrap .rowColumn .box:last-child{
+      margin-right: 0 !important;
+    }
   }
   .wrap .loadMore{
     display: none;
@@ -207,6 +227,7 @@
   }
   .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .flex{
     display: flex;
+    float: right;
   }
   .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .preview{
     width: 32px;
@@ -237,11 +258,37 @@
     background: url('../images/bottom_icon1.png') no-repeat;
     background-size: 100% 100%;
   }
+    .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .rowColumn{
+    /* display: flex; */
+    /* margin-top: 53px; */
+    float: left;
+    /* float: right; */
+  }
+  .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .rowColumn .box{
+    width: 85px;  
+    height: 84px;
+    background: url('../images/box.png') no-repeat;
+    background-size: 100% 100%;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+    margin-bottom: 20px;
+  }
+  .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .rowColumn .box:hover{
+    background: url('../images/box_active.png') no-repeat;
+  }
+  .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .rowColumn .box p{
+    width: 44px;
+  }
   .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .article{
     /* width: 295px; */
     height: 186px;
     cursor: pointer;
-    margin-left: 50px;
+    /* margin-left: 50px; */
   }
   .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .article .column{
     /* width: 20px;
@@ -301,8 +348,8 @@
     right: -3px;
   }
   .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .rowColumn{
-    display: flex;
-    margin-top: 53px;
+    /* display: flex;
+    margin-top: 53px; */
   }
   .wrap .maxImage .max_img_content .layOut_panel .r_cont_wrap .rowColumn .box{
     width: 85px;  

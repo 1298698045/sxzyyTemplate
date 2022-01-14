@@ -23,11 +23,11 @@
                     <div class="r_cont_wrap">
                         <div class="flex">
                             {ms:arclist artid='1407272821952983041'}
-                            <div class="preview">
+                            <!-- <div class="preview">
                                 <i class="icon top_icon"></i>
                                 <p class="text" @click="goto('{ms:global.url/}${field.link}')">查看详细</p>
                                 <i class="icon bottom_icon"></i>
-                            </div>
+                            </div> -->
                             
                             <div class="article">
                                 <p class="column">
@@ -46,6 +46,17 @@
                             {/ms:arclist}
 
                         </div>
+                        <div class="rowColumn">
+                            <div class="box"
+                                @click="goto('https://720yun.com/t/bavkzh79Opy?scene_id=84301727')">
+                                <p>线上展厅</p>
+                            </div>
+                            {ms:arclist artid='1407272821952983041'}
+                            <div class="box">
+                                <p @click="goto('{ms:global.url/}${field.link}')">查看详情</p>
+                            </div>
+                            {/ms:arclist}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -60,6 +71,16 @@
                 <i class="icon bottom_icon"></i>
             </div>
             {/ms:arclist}
+            <div class="rowColumn">
+                <div class="box" @click="goto('https://720yun.com/t/bavkzh79Opy?scene_id=84301727')">
+                    <p>线上展厅</p>
+                </div>
+                {ms:arclist artid='1407272821952983041'}
+                <div class="box">
+                    <p @click="goto('{ms:global.url/}${field.link}')">查看详情</p>
+                </div>
+                {/ms:arclist}
+            </div>
         </div>
         <div class="center">
             <div class="row_title">
