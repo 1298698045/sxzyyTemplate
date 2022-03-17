@@ -65,7 +65,7 @@
                     <div class="swiper-container">
                         <div class="swiper-wrapper" id="swiperId" ref="swiperTabs">
                             {ms:channel type='son'}
-                            <#if field.typetitle!='预约挂号'>
+                            <#if field.typetitle!='预约挂号'&&field.typetitle!='停诊信息'>
                             <div class="swiper-slide tabs-item"
                             route="${field.typepath}"
                             :class="{active : $route.path == '${field.typepath}'}"
@@ -73,7 +73,7 @@
                                 ${field.typetitle}
                             </div>
                             <#else>
-                            <div class="swiper-slide"
+                            <div class="swiper-slide"  @click="goto('http://jytdz.jin1.com.cn:9091/')"
                             title="${field.typetitle}">
                                 ${field.typetitle}
                             </div>
@@ -203,7 +203,7 @@
                                             <td>{{line.schedule}}</td>
                                             
                                             <td class="operation">
-                                                <a target="_blank" href="#">
+                                                <a target="_blank" href="http://jytdz.jin1.com.cn:9091/">
                                                     <button class="btn">预约</button>
                                                 </a>
                                                 <a target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ">
@@ -236,7 +236,7 @@
                                             <td>{{line.goodAt}}</td>
                                             <td>{{line.schedule}}</td>
                                             <td class="operation">
-                                                <a target="_blank" href="#">
+                                                <a target="_blank" href="http://jytdz.jin1.com.cn:9091/">
                                                     <button class="btn">预约</button>
                                                 </a>
                                                 <a target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ">
@@ -275,7 +275,7 @@
                                             <td>{{line.schedule}}</td>
                                             
                                             <td class="operation">
-                                                <a target="_blank" href="#">
+                                                <a target="_blank" href="http://jytdz.jin1.com.cn:9091/">
                                                     <button class="btn">预约</button>
                                                 </a>
                                                 <a target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ">
@@ -313,7 +313,7 @@
                                             <td>{{line.schedule}}</td>
                                             
                                             <td class="operation">
-                                                <a target="_blank" href="#">
+                                                <a target="_blank" href="http://jytdz.jin1.com.cn:9091/">
                                                     <button class="btn">预约</button>
                                                 </a>
                                                 <a target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ">
@@ -529,7 +529,7 @@
                                             <td>{{line.goodAt}}</td>
                                             <td>{{line.schedule}}</td>
                                             <td class="operation">
-                                                <a target="_blank" href="#">
+                                                <a target="_blank" href="http://jytdz.jin1.com.cn:9091/">
                                                     <button class="btn">预约</button>
                                                 </a>
                                                 <a target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ">

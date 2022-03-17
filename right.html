@@ -1,5 +1,5 @@
 <div class="rightNav">
-    <div class="box">
+    <div class="box" @click="goto('http://jytdz.jin1.com.cn:9091/')">
       <div class="icon_img">
         <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon7.jpg" />
       </div>
@@ -41,8 +41,7 @@
       </div>
     </div>
     {/ms:channel} -->
-    {ms:channel type='self' typeid='1403220112515674114'}
-    <div class="box" @click="goto('{ms:global.url/}${field.typeurl}')">
+    <div class="box">
       <div class="icon_img">
         <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon9.jpg" />
       </div>
@@ -50,8 +49,11 @@
         <p>报告</p>
         <p>检查</p>
       </div>
+      <div class="qrCode maxCode">
+        <i></i>
+        <img class="imgs" src="{ms:global.host/}/{ms:global.style/}/images/qrcode_m.fwh.cn.jpg" alt="">
+      </div>
     </div>
-    {/ms:channel}
     <div class="box">
       <div class="icon_img">
         <img src="{ms:global.host/}/{ms:global.style/}/images/r_icon2.jpg" />
@@ -61,7 +63,7 @@
       </div>
       <div class="qrCode maxCode">
         <i></i>
-        <img class="imgs" src="{ms:global.host/}/{ms:global.style/}/images/qrcode.jpg" alt="">
+        <img class="imgs" src="{ms:global.host/}/{ms:global.style/}/images/qrcode_m.wx.cn.jpg" alt="">
       </div>
     </div>
     <div class="box">

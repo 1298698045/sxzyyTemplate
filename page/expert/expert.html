@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                             <div class="back_row">
-                                <div class="cel_o">挂号</div>
+                                <div class="cel_o" @click="goto('http://jytdz.jin1.com.cn:9091/')">挂号</div>
                                 <div class="cel_t" @click="goto('https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ9')">问诊</div>
                             </div>
                         </div>
@@ -332,10 +332,12 @@
                     }, that.page)).then(function(res) {
                         that.page.contentCount = res.data.total
                         that.lines = res.data.rows.map(function(row) {
-                            let name = row.name.split('_');
-                            if(name.length>1){
-                                row.name = name[0];
-                                row.sortIdx = name[1];
+                            if (String(row.field).indexOf('_') != -1) {
+                                let field = row.field.split('_');
+                                if (field.length > 1) {
+                                    row.field = field[0];
+                                    row.sortIdx = field[1];
+                                }
                             }
                             if (row.portrait) {
                                 var img = JSON.parse(row.portrait)

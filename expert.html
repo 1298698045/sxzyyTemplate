@@ -38,7 +38,7 @@
                                 {/ms:channel}
                             </div>
                             <div class="back_row">
-                                <a class="cel_o" href="#">挂号</a>
+                                <a class="cel_o" href="http://jytdz.jin1.com.cn:9091/" target="_blank">挂号</a>
                                 <a class="cel_t"  target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ9">问诊</a>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                     {/ms:channel}
                                 </div>
                                 <div class="back_row">
-                                    <a class="cel_o" href="#">挂号</a>
+                                    <a class="cel_o" href="http://jytdz.jin1.com.cn:9091/" target="_blank">挂号</a>
                                     <a class="cel_t"  target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ9">问诊</a>
                                 </div>
                             </div>
@@ -123,10 +123,12 @@ Vue.component('Expert', {
                 }, page)).then(function(res) {
                     //that.page.contentCount = res.data.total
                     var list = res.data.rows.map(function(row) {
-                        let name = row.name.split('_');
-                        if(name.length>1){
-                            row.name = name[0];
-                            row.sortIdx = name[1];
+                        if(row.field.indexOf('_')!=-1){
+                            let field = row.field.split('_');
+                            if(field.length>1){
+                                row.field = field[0];
+                                row.sortIdx = field[1];
+                            }
                         }
                         if (row.portrait) {
                             var img = JSON.parse(row.portrait)

@@ -1408,7 +1408,7 @@
     display: none;
   }
   .rightNav .box .qrCode.maxCode{
-    margin-top: -168px!important;
+    /* margin-top: -168px!important; */
   }
   .rightNav .box .qrCode i{
     height: 100%;

@@ -65,8 +65,8 @@
                                         </div>
                                         <div class="column columnBox hover alignment">
                                             {ms:channel type='son' orderby='sort'}
-                                            <#if field.typetitle='预约挂号'>
-                                            <p class="lis_p">
+                                            <#if field.typetitle='预约挂号'||field.typetitle='停诊信息'>
+                                            <p class="lis_p" @click="goto('http://jytdz.jin1.com.cn:9091/')">
                                                 <a href="#">${field.typetitle}</a>
                                             </p>
                                             <#else>
@@ -179,9 +179,15 @@
                         <#if (field.childsize>0)>
                         <div class="showBox">
                             {ms:channel type='son' orderby='sort'}
+                            <#if field.typetitle='预约挂号' ||field.typetitle='停诊信息'>
+                            <div class="cel">
+                                <span @click="goto('http://jytdz.jin1.com.cn:9091/')">${field.typetitle}</span>
+                            </div>
+                            <#else>
                             <div class="cel">
                                 <span @click="gotoHref('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</span>
                             </div>
+                            </#if>
                             {/ms:channel}
                         </div>
                         </#if>
