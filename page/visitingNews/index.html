@@ -160,9 +160,9 @@
                     <div class="content newcontent" id="visitInfo" style="display:block;">
                         <div class="box" id="tab_child">
                             <p class="tabC active">专家出诊（总院）</p>
-                            <p class="tabC">专家出诊（名医门诊）</p>
                             <p class="tabC">专家出诊（胜利分院）</p>
                             <p class="tabC">专家出诊（和平分院）</p>
+                            <p class="tabC">专家出诊（名医门诊）</p>
                         </div>
                         <div class="box swiper-container-child">
                             <div class="swiper-wrapper" id="swiperId_child">
@@ -170,13 +170,13 @@
                                     <p class="tabC active">专家出诊（总院）</p>
                                 </div>
                                 <div class="swiper-slide">
-                                    <p class="tabC">专家出诊（名医门诊）</p>
-                                </div>
-                                <div class="swiper-slide">
                                     <p class="tabC">专家出诊（胜利分院）</p>
                                 </div>
                                 <div class="swiper-slide">
                                     <p class="tabC">专家出诊（和平分院）</p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="tabC">专家出诊（名医门诊）</p>
                                 </div>
                             </div>
                         </div>
@@ -216,42 +216,6 @@
                             </div>
                             <div class="bottom_back"></div>
                         </div>
-                        <div class="blockWrap">
-                            <div class="top_back"></div>
-                            <div class="cont_wrap">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th width="120">姓名</th>
-                                            <th width="180">职称</th>
-                                            <th width="309">主治</th>
-                                            <th widht="400">出诊时间</th>
-                                            <th width="197">挂号/咨询</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="tbody" id="tbodyOne">
-                                        <tr class="dataRow" v-for='line in mymzBranch'>
-                                            <td @click="handleRouter(line)">{{line.name}}</td>
-                                            <td>{{line.technicalTitle}}</td>
-                                            <td>{{line.goodAt}}</td>
-                                            <td>{{line.schedule}}</td>
-                                            <td class="operation">
-                                                <a target="_blank" href="https://www.sxzyy.com/html/web/chuzhendongtai/index.html?articleid=1412294544561602562/#/chuzhendongtai/guahaoxuzhi">
-                                                    <button class="btn">预约</button>
-                                                </a>
-                                                <a target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ">
-                                                    <button class="btn msg">问诊</button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                    
-                                </table>
-                            </div>
-                            <div class="bottom_back"></div>
-                        </div>
-                        
                         <div class="blockWrap">
                             <div class="top_back"></div>
                             <div class="cont_wrap">
@@ -327,6 +291,43 @@
                             </div>
                             <div class="bottom_back"></div>
                         </div>
+                        <div class="blockWrap">
+                            <div class="top_back"></div>
+                            <div class="cont_wrap">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width="100">科室</th>
+                                            <th width="120">姓名</th>
+                                            <th width="180">职称</th>
+                                            <th width="309">主治</th>
+                                            <th widht="400">出诊时间</th>
+                                            <th width="197">挂号/咨询</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="tbody" id="tbodyOne">
+                                        <tr class="dataRow" v-for='line in mymzBranch'>
+                                            <td @click="handleDept(line)" v-show="line.showDept" :rowspan="line.rowSpan" class="name departmentId">{{line.departmentName}}</td>
+                                            <td @click="handleRouter(line)">{{line.name}}</td>
+                                            <td>{{line.technicalTitle}}</td>
+                                            <td>{{line.goodAt}}</td>
+                                            <td>{{line.schedule}}</td>
+                                            <td class="operation">
+                                                <a target="_blank" href="https://www.sxzyy.com/html/web/chuzhendongtai/index.html?articleid=1412294544561602562/#/chuzhendongtai/guahaoxuzhi">
+                                                    <button class="btn">预约</button>
+                                                </a>
+                                                <a target="_blank" href="https://weixin.sxyygh.com/#/hospital/onlinevisit/home?hosId=1023&_t=eyJzaG93Ijp0cnVlLCJ0aXRsZSI6IuWxseilv%252BecgeS4reWMu%252BmZoiJ">
+                                                    <button class="btn msg">问诊</button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                    
+                                </table>
+                            </div>
+                            <div class="bottom_back"></div>
+                        </div>
                     </div>
                     `,
                     mixins: [mixin],
@@ -363,7 +364,7 @@
                                         that.mainBranch.push(row)
                                     }
                                 })
-                                
+                                aggregateDept(that.mymzBranch)
                                 aggregateDept(that.mainBranch)
                                 aggregateDept(that.slfyBranch)
                                 aggregateDept(that.hpfyBranch)

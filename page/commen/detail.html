@@ -34,7 +34,8 @@
                         </div>
                     </div>
                     <div class="hr"></div>
-                    <div class="article" desc=`${field.descrip}`>
+                    <div class="hiddenDesc" style="display: none;">${field.descrip}</div>
+                    <div class="article">
                         ${field.content}
                     </div>
                 </div>
@@ -60,7 +61,7 @@
     var share_config = {
         'bdText': $('.title').text(),
         'bdUrl': location.href,
-        'bdDesc': $('.article').attr('desc')
+        'bdDesc': $('.hiddenDesc').html()
     };
     $('.bds_tsina').click(function(){
         window.open('http://service.weibo.com/share/share.php?title=' + share_config.bdText + '&url=' + share_config.bdUrl)
