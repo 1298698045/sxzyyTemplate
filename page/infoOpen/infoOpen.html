@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/patient.css">
     <script type="text/javascript" src="${base}/static/plugins/vue/2.6.9/vue.js"></script>
     <script type="text/javascript" src="${base}/static/plugins/vue-router/3.5.1/vue-router.js"></script>
+    <link rel="stylesheet" href="{ms:global.host/}/static/plugins/element-ui/2.15.1/theme-chalk/index.min.css">
     <style>
         .wrap .center .container .tabs {
             display: flex;
@@ -59,7 +60,103 @@
             background-size: 100% 100%;
         }
     </style>
-    <link rel="stylesheet" href="{ms:global.host/}/{ms:global.style/}/css/pagination.css">
+
+    <style>
+        .newPage.pageMobile{
+            display: none;
+        }
+        .el-pagination .el-pager .number{
+            width: 57px!important;
+            height: 58px!important;
+            line-height: 58px;
+            background: url('{ms:global.host/}/{ms:global.style/}/images/page_icon.png') no-repeat!important;
+            list-style: none!important;
+            vertical-align: top!important;
+            color: #333!important;
+        }
+        .el-pagination .el-pager .number.active{
+            color: #ffffff!important;
+            background: url('{ms:global.host/}/{ms:global.style/}/images/page_icon_active.png') no-repeat !important;
+        }
+        .el-pagination .btn-next, .el-pagination .btn-prev{
+            width: 15px!important;
+            height: 34px!important;
+            margin-top: 16px!important;
+        }
+        .el-pagination .btn-prev{
+            background: url('{ms:global.host/}/{ms:global.style/}/images/page_left.png') no-repeat!important;
+        }
+        .el-pagination .btn-next{
+            background: url('{ms:global.host/}/{ms:global.style/}/images/page_right.png') no-repeat!important;
+            margin-left: 18px!important;
+        }
+        .el-pagination .btn-next .el-icon, .el-pagination .btn-prev .el-icon{
+            display: none!important;
+        }
+        .el-pagination .more{
+            width: 57px!important;
+            height: 58px!important;
+            line-height: 58px;
+            background: url('{ms:global.host/}/{ms:global.style/}/images/page_icon.png') no-repeat!important;
+            list-style: none!important;
+            vertical-align: top!important;
+            color: #333!important;
+        }
+        .el-pager .more::before{
+            line-height: 58px!important;
+        }
+        .el-pagination__jump{
+            width: 156px!important;
+            height: 42px!important;
+            background: url('{ms:global.host/}/{ms:global.style/}/images/jump.png') no-repeat!important;
+            background-size: 100% 100%!important;
+            display: inline-block!important;
+            color: #606266!important;
+            margin-left: 10px!important;
+            padding: 10px 10px 10px 20px!important;
+            margin-top: 5px!important;
+        }
+        .el-input__inner{
+            background: none!important;
+            border: none!important;
+        }
+        .el-pagination{
+            display: flex;
+            justify-content: center;
+        }
+        .newPage .el-pagination{
+            display: inline;
+        }
+         .pageTwo{
+            text-align: center!important;
+        }
+        @media only screen and (max-width: 750px){
+             .newPage{
+                text-align: center;
+            }
+             .newPage .el-pagination .el-pager .number{
+                width: 10px!important;
+                background: initial!important;
+                line-height: 58px!important;
+                margin: 0!important;
+                font-size: 16px !important;
+            }
+             .newPage .el-pagination .el-pager .number.active{
+                color: #815b3f !important;
+                font-size: 18px !important;
+            }
+             .newPage .el-pagination .more{
+                width: 10px !important;
+                background: initial !important;
+            }
+             .newPage.pagePC{
+                display: none!important;
+            }
+             .newPage.pageMobile{
+                display: block!important;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="app" class="wrap" v-cloak>
@@ -68,7 +165,7 @@
         <div class="center">
             <#include "location.html" />
             <div class="container">
-                <div class="row_title">
+                <div class="row_title" id="anchor1">
                     <div class="imgs">
                         <img src="{ms:global.host/}/{ms:global.style/}/images/01.png" alt="">
                     </div>
@@ -97,8 +194,17 @@
 <script src="{ms:global.host/}/{ms:global.style/}/utils/head.js"></script>
 <script src="{ms:global.host/}/{ms:global.style/}/js/infoOpen.js"></script>
 <script src="{ms:global.host/}/{ms:global.style/}/js/pagination.js"></script>
+<script src="${base}/static/plugins/axios/0.18.0/axios.min.js"></script>
+<script src="${base}/static/plugins/qs/6.6.0/qs.min.js"></script>
+<script type="text/javascript" src="${base}/static/plugins/moment/2.29.1/moment.js"></script>
+<script type="text/javascript" src="${base}/static/plugins/ms/1.0.0/ms.http.js"></script>
+<script type="text/javascript" src="${base}/static/plugins/vue/2.6.9/vue.js"></script>
+<script type="text/javascript" src="${base}/static/plugins/vue-router/3.5.1/vue-router.js"></script>
+<script src="{ms:global.host/}/static/plugins/element-ui/2.15.1/index.min.js"></script>
 <script src="{ms:global.host/}/{ms:global.style/}/js/app.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.11.1/vconsole.min.js"></script>
 <script type="text/javascript">
+    // new VConsole();
     var router = new VueRouter({routes:[
         {ms:channel type='son'}
         {
@@ -106,47 +212,137 @@
             name: '${field.typetitle}',
             component: {
                 template: ` 
-                <div class="content newcontent">
-                    <div class="NoticeBody">
-                        <div class="left_wrap">
-                            <div class="left_wrap_view">
-                                <div class="l_text">
-                                    {ms:arclist orderby='sort' size=9999}
-                                    <div class="row_back<#if field.index==1> active</#if>" id='${field.id}'>
-                                        <i class="icon_l"></i>
-                                        <span class="<#if field.index==1>active</#if>">
-                                            ${field.title}
-                                        </span>
-                                    </div>
-                                    {/ms:arclist}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="right_wrap">
-                            {ms:arclist orderby='sort' size=9999}
-                            <div class="rightCont<#if field.index==1> active</#if>">
-                                <div class="head" style="margin:35px 35 0 35px">
-                                    <div class="title">
-                                        <i class="left"></i>
-                                        <span>${field.title}</span>
-                                    </div>
-                                    <div class="time">
-                                        发布时间：${field.date?string("yyyy-MM-dd")}
-                                    </div>
-                                </div>
-                                <div class="article">
-                                    <div class="descWrap" style="margin-left:0;">
-                                        <div class="d-visible">
-                                            ${field.content}
+                <div>
+                    <div class="content newcontent">
+                        <div class="NoticeBody">
+                            <div class="left_wrap">
+                                <div class="left_wrap_view">
+                                    <div class="l_text" style="overflow-y: auto!important;">
+                                        <div v-for="(line,index) in lines" class="row_back" :class="{active:num==index}" @click="handleOpenDetail(line,index)" id='${field.id}'>
+                                            <i class="icon_l"></i>
+                                            <span :class="{active:num==index}">
+                                                {{line.contentTitle}}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {/ms:arclist}
+                            <div class="right_wrap">
+                                <div class="rightCont active">
+                                    <div class="head" style="margin:35px 35 0 35px">
+                                        <div class="title">
+                                            <i class="left"></i>
+                                            <span>{{detail.contentTitle}}</span>
+                                        </div>
+                                        <div class="time">
+                                            发布时间：{{detail.contentDatetime}}
+                                        </div>
+                                    </div>
+                                    <div class="article">
+                                        <div class="descWrap" style="margin-left:0;">
+                                            <div class="d-visible">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="newPage pagePC pageTwo">
+                        <el-pagination
+                            background
+                            @current-change="list"
+                            :page-size="page.pageSize"
+                            :current-page.sync="page.pageNo"
+                            layout="prev, pager, next, jumper"
+                            :total="page.contentCount">
+                        </el-pagination>
+                    </div>
+                    <div class="newPage pageMobile">
+                        <el-pagination
+                            background
+                            @current-change="list"
+                            :page-size="page.pageSize"
+                            :current-page.sync="page.pageNo"
+                            layout="prev, pager, next"
+                            :total="page.contentCount">
+                        </el-pagination>
+                    </div>
                 </div>
-                `
+                `,
+                mixins:[mixin],
+                data: function () {
+                    return {
+                        page: {
+                            //当前页数
+                            pageNo: 1,
+                            //每页文章条数
+                            pageSize: 10,
+                            //页数总数
+                            pageTotal: 0,
+                            //内容总数
+                            contentCount: 0
+                        },
+                        num: 0,
+                        lines: [],
+                        id: '',
+                        detail:{}
+                    }
+                },
+                methods:{
+                    list: function (pageCur) {
+                        var that = this
+                        that.page.pageNo = pageCur
+                        ms.http.post("/cms/content/list.do", Object.assign({}, {
+                            categoryId: '${field.typeid}'
+                        }, that.page)).then(function (res) {
+                            that.page.contentCount = res.data.total
+                            that.lines = res.data.rows;
+                            if (pageCur) {
+                                $("html, body").scrollTop(0).animate({ scrollTop: $("#anchor1").offset().top - 30 });
+                                // window.location.href = "#anchor1"
+                            }
+                            console.log('lines:', that.lines)
+                            that.num = 0;
+                            that.id = that.lines[0].id;
+                            console.log('that.id', that.id)
+                            that.getDetail();
+                        }).catch(function (err) {
+                            console.error('error:', err)
+                        })
+                    },
+                    getSimpleText(html) {
+                        var re1 = new RegExp("<.+?>", "g");//匹配html标签的正则表达式，"g"是搜索匹配多个符合的内容
+                        var msg = html.replace(re1, '');//执行替换成空字符
+                        return msg;
+                    },
+                    handleOpenDetail(line,index){
+                        console.log(line)
+                        this.num = index;
+                        this.id = line.id;
+                        this.getDetail();
+                    },
+                    getDetail(){
+                        var that = this;
+                        ms.http.get("/cms/content/get.do?id="+that.id,{
+                            
+                        }).then(function (res) {
+                            console.log(res,'detail')
+                            that.detail = res.data;
+                            $('.d-visible').html(res.data.contentDetails);
+                        })
+                    }
+                },
+                mounted: function () {
+                    if (this.$route.path == '/infoOpen/zhaobiaogonggao') {
+                        if (document.body.clientWidth <= 750) {
+                            this.page.pageSize = 10;
+                        } else {
+                            this.page.pageSize = 9;
+                        }
+                    }
+                    this.list('')
+                }
             }
         },
         {/ms:channel}

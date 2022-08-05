@@ -207,12 +207,12 @@
                             通知公告
                         </div> 
                         <div class="list_text" id="newsTwo">
-                            {ms:channel size=3 typeid='1400723660430274562'}
+                            {ms:channel size=3 typeid='1546418720095174658'}
                             <p class="back<#if field.index==1> active</#if> ${field.pinyin}"  @click="isMobile && goto('<#if field.type==3>{ms:global.url/}${field.typeurl}<#else>{ms:global.url/}${field.typelink}</#if>')">${field.typetitle}</p>
                             {/ms:channel}
                         </div>
                     </div>
-                    {ms:channel type='self' typeid='1400723660430274562'}
+                    {ms:channel type='self' typeid='1546418720095174658'}
                     <#assign parentlink=field.typelink>
                     {ms:channel size=3}
                     <div class="cont<#if field.index==1> active</#if>" idx=${field_index}>

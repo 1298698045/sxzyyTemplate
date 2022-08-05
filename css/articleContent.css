@@ -88,7 +88,7 @@
   width: 370px;
   margin: 20px;
   height: 545px;
-  overflow-y: scroll;
+  overflow-y: scroll !important;
 }
 .wrap .container .content .NoticeBody .left_wrap .l_text .row_back {
   width: 333px;
@@ -222,7 +222,7 @@
 .wrap .container .content .NoticeBody .right_wrap .article {
   width: 760px;
   height: 420px;
-  overflow-y: scroll;
+  overflow-y: scroll !important;
 }
 .wrap .container .content .NoticeBody .right_wrap .article a{
   color: #333333!important;
