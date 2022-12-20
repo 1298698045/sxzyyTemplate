@@ -108,7 +108,7 @@
                     </div>
                     <div class="swiper-container">
                         <div class="swiper-wrapper" id="swiperId">
-                            {ms:channel type='son'}
+                            {ms:channel type='son' orderby='sort'}
                             <div class="swiper-slide tabs-item"
                             :class="{active : $route.path == '${field.typepath}'}"
                             title="${field.typetitle}"  @click="push('${field.typepath}')">
@@ -617,7 +617,56 @@
                             </div>
                         `
                     }
-                }
+                },
+                <#elseif field.typeid='1602965130814537730'>
+                {
+                    path:'${field.typepath}',
+                    name:'${field.typetitle}',
+                    component:{
+                        template:`
+                        <div class="content newcontent">
+                            <div class="NoticeBody marginAuto">
+                                <div class="left_wrap">
+                                    <div class="left_wrap_view">
+                                        <div class="l_text">
+                                            {ms:arclist orderby='sort' size=9999}
+                                            <div class="row_back<#if field.index==1> active</#if>" id='${field.id}'>
+                                                <i class="icon_l"></i>
+                                                <span class="<#if field.index==1>active</#if>">
+                                                    ${field.title}
+                                                </span>
+                                            </div>
+                                            {/ms:arclist}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right_wrap">
+                                    {ms:arclist orderby='sort' size=9999}
+                                    <div class="rightCont active">
+                                        <div class="head" style="margin:35px 35 0 35px">
+                                            <div class="title">
+                                                <i class="left"></i>
+                                                <span>${field.title}</span>
+                                            </div>
+                                            <div class="time">
+                                                发布时间：${field.date?string("yyyy-MM-dd")}
+                                            </div>
+                                        </div>
+                                        <div class="article">
+                                            <div class="descWrap" style="margin-left:0;">
+                                                <div class="d-visible">
+                                                    ${field.content}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/ms:arclist}
+                                </div>
+                            </div>
+                        </div>
+                        `
+                    }
+                },
             </#if>
         {/ms:channel}
     ]})
@@ -1160,7 +1209,7 @@
         
     }    
 </script>
-<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=dpYUGNcGjk0Kx0p3o8zR7z3QI53HuGEc&s=1"></script>
+<script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=Aju2MTGQh4dSZcaq9rcHwZVjWuk5l1yP"></script>
 <script type="text/javascript" src="//api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
 
 <script>
